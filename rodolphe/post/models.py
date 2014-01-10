@@ -7,7 +7,7 @@ class Post(models.Model):
     active = models.BooleanField(default=True)
     parent = models.ForeignKey('Post', blank=True, null=True)
     content = models.TextField()
-    hash_id = models.IntegerField()
+    hash_id = models.BigIntegerField()
 
     def __str__(self):
         return '#{}'.format(self.id)
