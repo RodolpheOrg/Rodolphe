@@ -89,5 +89,3 @@ try:
     from .local_settings import *
 except ImportError:
     logging.warning("No local_settings file found.")
-
-print(SECRET_KEY)
