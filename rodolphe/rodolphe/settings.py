@@ -82,6 +82,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Template directories
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
 # Local settings
 
 import logging
