@@ -1,3 +1,13 @@
 <h2>Post {{post}}</h2>
 
-{% include 'post_tree.html' %}
+{% include 'post_content.html' %}
+
+{% if post.responses %}
+<ul>
+  {% for resp in post.responses %}
+  <li>
+    {% include 'post_content.html' with post=resp %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
