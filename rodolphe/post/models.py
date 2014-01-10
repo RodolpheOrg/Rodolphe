@@ -11,3 +11,7 @@ class Post(models.Model):
 
     def __str__(self):
         return '#{}'.format(self.id)
+
+    @property
+    def responses(self):
+        return Post.objects.filter(parent=self)

@@ -1,1 +1,7 @@
-toto {{page}}
+<h2>Page n°{{page}}</h2>
+
+<ul>
+  {% for post in posts %}
+  <li><a href="{% url 'post.views.post' post.id %}">{{post}}</a></li>
+  {% endfor %}
+</ul>
