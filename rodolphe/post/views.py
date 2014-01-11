@@ -54,7 +54,7 @@ def new(request):
 def edit(request, post_id):
     p = Post.objects.get(id=int(post_id))
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=p)
+        form = PostForm(request.POST, request.FILES, instance=p)
         if form.is_valid():
             form.save()
             return redirect(view, p.thread.id)

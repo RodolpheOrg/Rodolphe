@@ -17,7 +17,6 @@ class Post(models.Model):
     active = models.BooleanField(default=True)
     parent = models.ForeignKey('Post', blank=True, null=True)
     content = models.TextField()
-    #picture = models.ImageField(upload_to='pics/', blank=True)
     picture = models.ImageField(upload_to=get_upload_image_name, blank=True)
     hash_id = models.BinaryField(max_length=20)
 
