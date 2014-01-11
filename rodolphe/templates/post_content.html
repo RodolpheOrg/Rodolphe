@@ -3,6 +3,11 @@
   <div class="panel-heading">
     {% if editable %}
     <div class="btn-group pull-right">
+      {% if post.old_post %}
+      <a href="{%url 'post.views.history' post.id %}" title="history" class="btn btn-info btn-xs">
+	{% bootstrap_icon "time" %}
+      </a>
+      {% endif %}
       <a href="{%url 'post.views.edit' post.id %}" title="edit" class="btn btn-warning btn-xs">
 	{% bootstrap_icon "edit" %}
       </a>

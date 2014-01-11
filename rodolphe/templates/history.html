@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load get_set %}
+
+{% set pagetitle %}Historique d'un Message - {{post}}{% endset %}
+
+{% block content %}
+<p>
+  <a href="{% url 'post.views.view' post.thread.id %}" class="btn btn-default pull-right">
+    {% bootstrap_icon "hand-left" %} Retour
+  </a>
+  <h2>Histrique de {{post}}</h2>
+</p>
+<hr/>
+
+{% for p in hist %}
+{% include 'post_content.html' with post=p %}
+{% endfor %}
+{% endblock %}

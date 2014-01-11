@@ -92,3 +92,14 @@ def delete(request, post_id):
         'form': form
     })
     return render_to_response('delete.html', context)
+
+def history(request, post_id):
+    post = Post.objects.get(id=int(post_id), active=True)
+    hist = [post]
+    while hist[0].old_post:
+        hist.insert(0, hist[0].old_post)
+    context = RequestContext(request, {
+        'post': post,
+        'hist': hist
+    })
+    return render_to_response('history.html', context)
