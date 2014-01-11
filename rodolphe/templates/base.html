@@ -2,18 +2,22 @@
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set foo %}AAA{% endset %}
+{% set maintitle %}Ich bin Rodolphe{% endset %}
+
+{% block bootstrap3_title %}{% get maintitle %} - {% get pagetitle %}{% endblock %}
 
 {% block bootstrap3_content %}
 <div class="container">
   <div class="page-header">
-    <h1>{% block bootstrap3_title %}Ich bin Rodolphe - {% block title %}{% endblock %}{% endblock %}{% get foo %}</h1>
+    <h1>{% get maintitle %} <small>{% get pagetitle %}</small></h1>
   </div>
-  
-  <p>
-    <a href="{% url 'post.views.home' %}">home</a>
-    <a href="{% url 'post.views.new' %}">New post</a>
-  </p>
+
+  <nav class="navbar" role="navigation">
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'post.views.home' %}">{% bootstrap_icon "home" %} Home</a></li>
+      <li><a href="{% url 'post.views.new' %}">{% bootstrap_icon "plus" %} New Thread</a></li>
+    </ul>
+  </nav>
   
   {% bootstrap_messages %}
   

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
+{% load get_set %}
 
-{% block title %}Edit post {{post}}{% endblock %}
+{% set pagetitle %}Edit Post {{post}}{% endset %}
 
 {% block content %}
 <a href="{% url 'post.views.view' post.thread.id %}">Back</a></br/>

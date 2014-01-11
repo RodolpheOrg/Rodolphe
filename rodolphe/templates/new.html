@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load get_set %}
 
-{% block title %}New{% endblock %}
+{% set pagetitle %}New Thread{% endset %}
 
 {% block content %}
 {% include 'new_form.html' %}
