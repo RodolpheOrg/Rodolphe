@@ -1,20 +1,27 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from post.models import Post
 from post.forms import PostForm
 
 # Create your views here.
 
-def home(request):
-    return page(request)
-
-def page(request, page_id='1'):
+def page(request):
+    paginator = Paginator(Post.objects.filter(parent=None).order_by('-id'), 10)
+    page_id = request.GET.get('page')
+    try:
+        posts = paginator.page(page_id)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
     context = RequestContext(request, {
-        'page': page_id,
-        'posts': Post.objects.filter(parent=None).order_by('-id'),
+        'page': posts,
         'form': PostForm()
     })
     return render_to_response('index.html', context)
+
+home = page
 
 def view(request, post_id):
     post = Post.objects.get(id=int(post_id), parent=None)

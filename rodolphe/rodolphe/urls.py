@@ -4,8 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'post.views.home'),
-    url(r'^(?P<page_id>\d+)$', 'post.views.page'),
+    url(r'^$', 'post.views.page'),
     url(r'^view/(?P<post_id>\d+)$', 'post.views.view'),
     url(r'^new$', 'post.views.new'),
     url(r'^edit/(?P<post_id>\d+)$', 'post.views.edit'),
