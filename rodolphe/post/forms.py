@@ -10,6 +10,7 @@ class PostForm(forms.ModelForm):
     def save(self, commit=True):
         post = super().save(commit=False)
         post.set_passkey(self.cleaned_data['passkey'])
+        post.set_author(self.cleaned_data['passkey'])
         if commit:
             post.save()
         return post
