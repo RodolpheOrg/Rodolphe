@@ -5,12 +5,17 @@
 {% set pagetitle %}Edit Post {{post}}{% endset %}
 
 {% block content %}
-<a href="{% url 'post.views.view' post.thread.id %}">Back</a></br/>
+<p>
+  <a href="{% url 'post.views.view' post.thread.id %}" class="btn btn-default">
+    {% bootstrap_icon "hand-left" %} Back
+  </a>
+</p>
+
 <form method="post">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "pencil" %} Edit
+    {% bootstrap_icon "ok" %} Edit
   </button>
   {% endbuttons %}
 </form>

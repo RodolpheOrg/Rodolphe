@@ -1,22 +1,23 @@
 {% load bootstrap3 %}
 <div class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
   <div class="panel-heading">
-    {% if headerlink %}<a href="{% url 'post.views.view' post.id %}">{% endif %}
-      {% if post.title %}
-      {{post.title}} - 
-      {% endif %}
-      {{post}}
-    {% if headerlink %}</a>{% endif %}
     {% if editable %}
     <div class="btn-group pull-right">
       <a href="{%url 'post.views.edit' post.id %}" title="edit" class="btn btn-warning btn-xs">
-	{% bootstrap_icon "pencil" %}
+	{% bootstrap_icon "edit" %}
       </a>
       <a href="" title="delete" class="btn btn-danger btn-xs">
 	{% bootstrap_icon "remove" %}
       </a>
     </div>
     {% endif %}
+    
+    {% if headerlink %}<a href="{% url 'post.views.view' post.id %}">{% bootstrap_icon "link" %}{% endif %}
+      {% if post.title %}
+      {{post.title}} - 
+      {% endif %}
+      {{post}}
+    {% if headerlink %}</a>{% endif %}
   </div>
   <div class="panel-body">
     {{post.content}}<br/>

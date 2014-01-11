@@ -5,8 +5,6 @@
 {% set pagetitle %}Home{% endset %}
 
 {% block content %}
-<h2>Page n°{{page.number}}</h2>
-
 {% for post in page %}
 {% include 'post_content.html' with header=True headerlink=True %}
 <hr/>
