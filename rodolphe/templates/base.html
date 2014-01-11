@@ -1,0 +1,17 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+<div class="container">
+  <h1>{% block bootstrap3_title %}{% block title %}{% endblock %}{% endblock %}</h1>
+  
+  <p>
+    <a href="{% url 'post.views.home' %}">home</a>
+    <a href="{% url 'post.views.new' %}">New post</a>
+  </p>
+  
+  {% bootstrap_messages %}
+  
+  {% block content %}(no content){% endblock %}
+</div>
+{% endblock %}

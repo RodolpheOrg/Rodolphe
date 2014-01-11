@@ -1,5 +1,9 @@
-<h2>Post {{post}}</h2>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
 
+{% block title %}Post {{post}}{% endblock %}
+
+{% block content %}
 {% include 'post_content.html' %}
 
 {% if post.responses %}
@@ -13,6 +17,11 @@
 {% endif %}
 
 <form method="post">{% csrf_token %}
-{{form.as_p}}
-<input type="submit" value="Post" />
+  {% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+    {% bootstrap_icon "star" %} Post
+  </button>
+  {% endbuttons %}
 </form>
+{% endblock %}

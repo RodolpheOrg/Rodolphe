@@ -55,6 +55,7 @@ def edit(request, post_id):
     else:
         form = PostForm(instance=p)
     context = RequestContext(request, {
+        'post': p,
         'form': form
     })
     return render_to_response('edit.html', context)

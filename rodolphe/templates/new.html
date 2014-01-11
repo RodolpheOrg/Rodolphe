@@ -1,4 +1,15 @@
-<form action="{% url 'post.views.new' %}" method="post">{% csrf_token %}
-{{form.as_p}}
-<input type="submit" value="Post" />
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}New{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+    {% bootstrap_icon "star" %} Post
+  </button>
+  {% endbuttons %}
 </form>
+{% endblock %}
