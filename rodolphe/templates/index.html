@@ -2,15 +2,16 @@
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Home{% endset %}
+{% set pagetitle %}Accueil{% endset %}
 
 {% block content %}
+<h2>Liste des sujets - Page {{page.number}}</h2>
+<hr/>
+
 {% for post in page %}
 {% include 'post_content.html' with header=True headerlink=True %}
 <hr/>
 {% endfor %}
 
 {% bootstrap_pagination page %}
-
-{% include 'new_form.html' %}
 {% endblock %}

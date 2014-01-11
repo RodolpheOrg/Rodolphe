@@ -2,9 +2,11 @@
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Thread {{post}}{% endset %}
+{% set pagetitle %}Lecture d'un Sujet - {{post}}{% endset %}
 
 {% block content %}
+<h2>{{post}}</h2>
+<hr/>
 {% include 'post_content.html' with header=True editable=True %}
 
 {% if post.responses %}
@@ -13,11 +15,13 @@
 {% endfor %}
 {% endif %}
 
+<hr/>
+<h2>Répondre au Sujet {{post}}</h2>
 <form method="post">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "plus" %} Post
+    {% bootstrap_icon "plus" %} Répondre
   </button>
   {% endbuttons %}
 </form>
