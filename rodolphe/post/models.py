@@ -4,6 +4,7 @@ from rodolphe.fields import UUIDField
 
 from uuid import uuid4
 import hashlib
+import datetime
 import os.path
 
 # Create your models here.
@@ -20,6 +21,8 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     picture = models.ImageField(upload_to=get_upload_image_name, blank=True)
     hash_id = models.BinaryField(max_length=20)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField(null=True)
 
     def __str__(self):
         return '#{}'.format(self.id)
@@ -41,4 +44,4 @@ class Post(models.Model):
 
     @classmethod
     def default(cls, *args, **kwargs):
-        return cls(uuid=uuid4(), *args, **kwargs)
+        return cls(uuid=uuid4(), created_at=datetime.datetime.now(), *args, **kwargs)

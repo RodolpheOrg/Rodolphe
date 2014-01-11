@@ -4,6 +4,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from post.models import Post
 from post.forms import PostForm, DeletePostForm
 
+import datetime
+
 # Create your views here.
 
 def page(request):
@@ -62,6 +64,7 @@ def edit(request, post_id):
             old.save()
             post = form.save(commit=False)
             post.old_post = old
+            post.updated_at = datetime.datetime.now()
             post.save()
             return redirect(view, post.thread.id)
     else:

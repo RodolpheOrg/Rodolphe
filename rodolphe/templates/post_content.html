@@ -23,6 +23,15 @@
       {% endif %}
       {{post}}
     {% if headerlink %}</a>{% endif %}
+    par Rodolphe
+    le {{ post.created_at|date:"DATE_FORMAT" }}
+    à {{ post.created_at|time:"TIME_FORMAT" }}
+    {% if post.updated_at %}
+    (modifié
+    le {{ post.updated_at|date:"DATE_FORMAT" }}
+    à {{ post.updated_at|time:"TIME_FORMAT" }}
+    )
+    {% endif %}
   </div>
   <div class="panel-body">
     {% if post.picture %}
