@@ -24,10 +24,9 @@ def post(request, post_id):
 
 def new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, instance=Post.default())
         if form.is_valid():
-            p = Post(title=form.cleaned_data['title'],
-                     content=form.cleaned_data['content'])
+            form.save()
     else:
         form = PostForm()
     context = RequestContext(request, {

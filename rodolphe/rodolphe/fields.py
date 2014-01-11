@@ -11,6 +11,8 @@ class UUIDField(models.BinaryField, metaclass=models.SubfieldBase):
         del kwargs['max_length']
         return name, path, args, kwargs
     def to_python(self, value):
+        if not value or isinstance(value, UUID):
+            return value
         return UUID(bytes=value)
     def get_prep_value(self, value):
         return super().get_prep_value(value.bytes)
