@@ -6,7 +6,7 @@
       <a href="{%url 'post.views.edit' post.id %}" title="edit" class="btn btn-warning btn-xs">
 	{% bootstrap_icon "edit" %}
       </a>
-      <a href="" title="delete" class="btn btn-danger btn-xs">
+      <a href="{%url 'post.views.delete' post.id %}" title="delete" class="btn btn-danger btn-xs">
 	{% bootstrap_icon "remove" %}
       </a>
     </div>

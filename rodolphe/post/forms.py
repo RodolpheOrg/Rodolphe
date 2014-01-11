@@ -19,3 +19,15 @@ class PostForm(forms.ModelForm):
             if self.instance.hash_id != Post.gen_passkey(self.instance.uuid, cleaned_data['passkey']):
                 raise forms.ValidationError('passkeys differ')
         return cleaned_data
+
+class DeletePostForm(forms.ModelForm):
+    passkey = forms.CharField(widget=forms.PasswordInput)
+    class Meta:
+        model = Post
+        fields = ()
+    def clean(self):
+        cleaned_data = super().clean()
+        if hasattr(self, 'instance') and self.instance.hash_id:
+            if self.instance.hash_id != Post.gen_passkey(self.instance.uuid, cleaned_data['passkey']):
+                raise forms.ValidationError('passkeys differ')
+        return cleaned_data

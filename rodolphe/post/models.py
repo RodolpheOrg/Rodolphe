@@ -25,7 +25,7 @@ class Post(models.Model):
 
     @property
     def responses(self):
-        return Post.objects.filter(parent=self)
+        return Post.objects.filter(active=True, parent=self)
     @property
     def thread(self):
         return self.parent if self.parent else self

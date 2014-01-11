@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^view/(?P<post_id>\d+)$', 'post.views.view'),
     url(r'^new$', 'post.views.new'),
     url(r'^edit/(?P<post_id>\d+)$', 'post.views.edit'),
+    url(r'^del/(?P<post_id>\d+)$', 'post.views.delete'),
 
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

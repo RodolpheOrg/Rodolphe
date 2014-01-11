@@ -2,22 +2,22 @@
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Édition d'un message{% endset %}
+{% set pagetitle %}Suppression d'un message{% endset %}
 
 {% block content %}
 <p>
   <a href="{% url 'post.views.view' post.thread.id %}" class="btn btn-default pull-right">
     {% bootstrap_icon "hand-left" %} Retour
   </a>
-  <h2>Édition Message {{post}}</h2>
+  <h2>Suppression Message {{post}}</h2>
 </p>
 <hr/>
 
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
+<form method="post">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "ok" %} Éditer
+    {% bootstrap_icon "ok" %} Supprimer
   </button>
   {% endbuttons %}
 </form>

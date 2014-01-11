@@ -2,12 +2,12 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from post.models import Post
-from post.forms import PostForm
+from post.forms import PostForm, DeletePostForm
 
 # Create your views here.
 
 def page(request):
-    paginator = Paginator(Post.objects.filter(parent=None).order_by('-id'), 10)
+    paginator = Paginator(Post.objects.filter(active=True, parent=None).order_by('-id'), 10)
     page_id = request.GET.get('page')
     try:
         posts = paginator.page(page_id)
@@ -24,7 +24,7 @@ def page(request):
 home = page
 
 def view(request, post_id):
-    post = Post.objects.get(id=int(post_id), parent=None)
+    post = Post.objects.get(id=int(post_id), active=True, parent=None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=Post.default(parent=post))
         if form.is_valid():
@@ -52,16 +52,37 @@ def new(request):
     return render_to_response('new.html', context)
 
 def edit(request, post_id):
-    p = Post.objects.get(id=int(post_id))
+    post = Post.objects.get(id=int(post_id), active=True)
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=p)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            return redirect(view, p.thread.id)
+            return redirect(view, post.thread.id)
     else:
-        form = PostForm(instance=p)
+        form = PostForm(instance=post)
     context = RequestContext(request, {
-        'post': p,
+        'post': post,
         'form': form
     })
     return render_to_response('edit.html', context)
+
+def delete(request, post_id):
+    post = Post.objects.get(id=int(post_id), active=True)
+    if request.method == 'POST':
+        form = DeletePostForm(request.POST, instance=post)
+        if form.is_valid():
+            for resp in post.responses:
+                resp.active = False
+                resp.save()
+            post.active = False
+            post.save()
+            if post.parent:
+                return redirect(view, post.parent.id)
+            return redirect(home)
+    else:
+        form = DeletePostForm(instance=post)
+    context = RequestContext(request, {
+        'post': post,
+        'form': form
+    })
+    return render_to_response('delete.html', context)
