@@ -36,7 +36,7 @@ def view(request, post_id):
         'post': post,
         'form': form
     })
-    return render_to_response('post.html', context)
+    return render_to_response('view.html', context)
 
 def new(request):
     if request.method == 'POST':
