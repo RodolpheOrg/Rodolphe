@@ -11,22 +11,22 @@ def home(request):
 def page(request, page_id='1'):
     context = RequestContext(request, {
         'page': page_id,
-        'posts': Post.objects.filter(parent=None),
+        'posts': Post.objects.filter(parent=None).order_by('-id'),
         'form': PostForm()
     })
     return render_to_response('index.html', context)
 
-def post(request, post_id):
-    p = Post.objects.get(id=int(post_id), parent=None)
+def view(request, post_id):
+    post = Post.objects.get(id=int(post_id), parent=None)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=Post.default(parent=p))
+        form = PostForm(request.POST, instance=Post.default(parent=post))
         if form.is_valid():
             form.save()
             form = PostForm()
     else:
         form = PostForm()
     context = RequestContext(request, {
-        'post': p,
+        'post': post,
         'form': form
     })
     return render_to_response('post.html', context)
@@ -50,8 +50,7 @@ def edit(request, post_id):
         form = PostForm(request.POST, instance=p)
         if form.is_valid():
             form.save()
-            parent = p if not p.parent else p.parent
-            return redirect(post, parent.id)
+            return redirect(view, p.thread.id)
     else:
         form = PostForm(instance=p)
     context = RequestContext(request, {

@@ -21,6 +21,9 @@ class Post(models.Model):
     @property
     def responses(self):
         return Post.objects.filter(parent=self)
+    @property
+    def thread(self):
+        return self.parent if self.parent else self
 
     @staticmethod
     def gen_passkey(uuid, key):

@@ -4,16 +4,12 @@
 {% block title %}Post {{post}}{% endblock %}
 
 {% block content %}
-{% include 'post_content.html' %}
+{% include 'post_content.html' with header=True editable=True %}
 
 {% if post.responses %}
-<ul>
-  {% for resp in post.responses %}
-  <li>
-    {% include 'post_content.html' with post=resp %}
-  </li>
-  {% endfor %}
-</ul>
+{% for resp in post.responses %}
+{% include 'post_content.html' with post=resp editable=True %}
+{% endfor %}
 {% endif %}
 
 <form method="post">{% csrf_token %}
