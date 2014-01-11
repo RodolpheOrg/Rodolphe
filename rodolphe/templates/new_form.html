@@ -1,0 +1,9 @@
+{% load bootstrap3 %}
+<form action="{% url 'post.views.new' %}" method="post">{% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+    {% bootstrap_icon "plus" %} Post
+  </button>
+  {% endbuttons %}
+</form>
