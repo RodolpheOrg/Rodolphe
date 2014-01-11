@@ -1,9 +1,14 @@
 {% extends 'bootstrap3/bootstrap3.html' %}
 {% load bootstrap3 %}
+{% load get_set %}
+
+{% set foo %}AAA{% endset %}
 
 {% block bootstrap3_content %}
 <div class="container">
-  <h1>{% block bootstrap3_title %}{% block title %}{% endblock %}{% endblock %}</h1>
+  <div class="page-header">
+    <h1>{% block bootstrap3_title %}Ich bin Rodolphe - {% block title %}{% endblock %}{% endblock %}{% get foo %}</h1>
+  </div>
   
   <p>
     <a href="{% url 'post.views.home' %}">home</a>

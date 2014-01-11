@@ -6,7 +6,7 @@ class PostForm(forms.ModelForm):
     passkey = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Post
-        fields = ('title', 'content')
+        fields = ('content',)
     def save(self, commit=True):
         post = super().save(commit=False)
         post.set_passkey(self.cleaned_data['passkey'])

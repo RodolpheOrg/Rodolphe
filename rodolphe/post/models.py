@@ -9,7 +9,6 @@ import hashlib
 
 class Post(models.Model):
     uuid = UUIDField()
-    title = models.CharField(max_length=100, blank=True)
     active = models.BooleanField(default=True)
     parent = models.ForeignKey('Post', blank=True, null=True)
     content = models.TextField()
