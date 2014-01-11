@@ -17,16 +17,16 @@ def page(request, page_id='1'):
     return render_to_response('index.html', context)
 
 def post(request, post_id):
-    thread = Post.objects.get(id=int(post_id), parent=None)
+    p = Post.objects.get(id=int(post_id), parent=None)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=Post.default(parent=thread))
+        form = PostForm(request.POST, instance=Post.default(parent=p))
         if form.is_valid():
             form.save()
             form = PostForm()
     else:
         form = PostForm()
     context = RequestContext(request, {
-        'post': thread,
+        'post': p,
         'form': form
     })
     return render_to_response('post.html', context)
@@ -43,3 +43,18 @@ def new(request):
         'form': form
     })
     return render_to_response('new.html', context)
+
+def edit(request, post_id):
+    p = Post.objects.get(id=int(post_id))
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=p)
+        if form.is_valid():
+            form.save()
+            parent = p if not p.parent else p.parent
+            return redirect(post, parent.id)
+    else:
+        form = PostForm(instance=p)
+    context = RequestContext(request, {
+        'form': form
+    })
+    return render_to_response('edit.html', context)

@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^(?P<page_id>\d+)$', 'post.views.page'),
     url(r'^post/(?P<post_id>\d+)$', 'post.views.post'),
     url(r'^post/new$', 'post.views.new'),
+    url(r'^edit/(?P<post_id>\d+)$', 'post.views.edit'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -1,10 +1,5 @@
 from django import forms
 
-#class PostForm(forms.Form):
-#    title = forms.CharField(max_length=100)
-#    content = forms.CharField(widget=forms.Textarea)
-#    passphrase = forms.CharField(widget=forms.PasswordInput)
-
 from post.models import Post
 
 class PostForm(forms.ModelForm):
@@ -14,8 +9,13 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'content')
     def save(self, commit=True):
         post = super().save(commit=False)
-        if not post.hash_id:
-            post.set_passkey(self.cleaned_data['passkey'])
+        post.set_passkey(self.cleaned_data['passkey'])
         if commit:
             post.save()
         return post
+    def clean(self):
+        cleaned_data = super().clean()
+        if hasattr(self, 'instance') and self.instance.hash_id:
+            if self.instance.hash_id != Post.gen_passkey(self.instance.uuid, cleaned_data['passkey']):
+                raise forms.ValidationError('passkeys differ')
+        return cleaned_data
