@@ -42,8 +42,8 @@ def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=Post.default())
         if form.is_valid():
-            form.save()
-            return redirect(home)
+            post = form.save()
+            return redirect(view, post.id)
     else:
         form = PostForm()
     context = RequestContext(request, {
@@ -56,7 +56,13 @@ def edit(request, post_id):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            old = Post.objects.get(id=post.id)
+            old.id = None
+            old.active = False
+            old.save()
+            post = form.save(commit=False)
+            post.old_post = old
+            post.save()
             return redirect(view, post.thread.id)
     else:
         form = PostForm(instance=post)

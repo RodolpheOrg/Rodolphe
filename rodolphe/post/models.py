@@ -15,7 +15,8 @@ def get_upload_image_name(_, filename):
 class Post(models.Model):
     uuid = UUIDField()
     active = models.BooleanField(default=True)
-    parent = models.ForeignKey('Post', blank=True, null=True)
+    parent = models.ForeignKey('Post', blank=True, null=True, related_name='post_parent')
+    old_post = models.ForeignKey('Post', blank=True, null=True, related_name='post_old')
     content = models.TextField(blank=True)
     picture = models.ImageField(upload_to=get_upload_image_name, blank=True)
     hash_id = models.BinaryField(max_length=20)
