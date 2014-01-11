@@ -14,7 +14,10 @@ class GetNode(template.Node):
     def __init__(self, key):
        self.key = key
     def render(self, context):
-        return ''.join(v.render(context) for v in set_values[self.key])
+        try:
+            return ''.join(v.render(context) for v in set_values[self.key])
+        except KeyError:
+            return ''
 
 @register.tag('set')
 def do_set(parser, token):
@@ -25,5 +28,5 @@ def do_set(parser, token):
 
 @register.tag('get')
 def do_get(parser, token):
-    tag_name, key = token.split_contents()
+    _, key = token.split_contents()
     return GetNode(key)
