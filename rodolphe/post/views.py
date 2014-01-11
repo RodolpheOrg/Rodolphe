@@ -26,7 +26,7 @@ home = page
 def view(request, post_id):
     post = Post.objects.get(id=int(post_id), parent=None)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=Post.default(parent=post))
+        form = PostForm(request.POST, request.FILES, instance=Post.default(parent=post))
         if form.is_valid():
             form.save()
             form = PostForm()
@@ -40,7 +40,7 @@ def view(request, post_id):
 
 def new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=Post.default())
+        form = PostForm(request.POST, request.FILES, instance=Post.default())
         if form.is_valid():
             form.save()
             return redirect(home)

@@ -1,7 +1,7 @@
 {% load bootstrap3 %}
 <h2>Création d'un Nouveau Sujet</h2>
 <hr/>
-<form action="{% url 'post.views.new' %}" method="post">{% csrf_token %}
+<form action="{% url 'post.views.new' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
