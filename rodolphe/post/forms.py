@@ -15,6 +15,8 @@ class PostForm(forms.ModelForm):
         return post
     def clean(self):
         cleaned_data = super().clean()
+        if not cleaned_data['content'] and not cleaned_data['picture']:
+            raise forms.ValidationError('should put content or picture')
         if hasattr(self, 'instance') and self.instance.hash_id:
             if self.instance.hash_id != Post.gen_passkey(self.instance.uuid, cleaned_data['passkey']):
                 raise forms.ValidationError('passkeys differ')
