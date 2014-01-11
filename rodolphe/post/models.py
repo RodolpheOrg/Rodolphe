@@ -31,5 +31,5 @@ class Post(models.Model):
         self.hash_id = self.gen_passkey(self.uuid, key)
 
     @classmethod
-    def default(cls):
-        return cls(uuid=uuid4())
+    def default(cls, *args, **kwargs):
+        return cls(uuid=uuid4(), *args, **kwargs)

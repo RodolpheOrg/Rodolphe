@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from post.models import Post
 from post.forms import PostForm
@@ -17,8 +17,17 @@ def page(request, page_id='1'):
     return render_to_response('index.html', context)
 
 def post(request, post_id):
+    thread = Post.objects.get(id=int(post_id), parent=None)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=Post.default(parent=thread))
+        if form.is_valid():
+            form.save()
+            form = PostForm()
+    else:
+        form = PostForm()
     context = RequestContext(request, {
-        'post': Post.objects.get(id=int(post_id), parent=None)
+        'post': thread,
+        'form': form
     })
     return render_to_response('post.html', context)
 
@@ -27,6 +36,7 @@ def new(request):
         form = PostForm(request.POST, instance=Post.default())
         if form.is_valid():
             form.save()
+            return redirect(home)
     else:
         form = PostForm()
     context = RequestContext(request, {
