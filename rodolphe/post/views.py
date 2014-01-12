@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -30,7 +30,7 @@ def page(request):
 home = page
 
 def view(request, post_id):
-    post = Post.objects.get(id=int(post_id), active=True, parent=None)
+    post = get_object_or_404(Post, id=int(post_id), active=True, parent=None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=Post.default(parent=post))
         if form.is_valid():
@@ -45,7 +45,7 @@ def view(request, post_id):
     return render_to_response('view.html', context)
 
 def raw(request, post_id):
-    post = Post.objects.get(id=int(post_id), active=True)
+    post = get_object_or_404(Post, id=int(post_id), active=True)
     infos = {
         'id': str(post.id),
         'author': str(post.author),
@@ -72,7 +72,7 @@ def new(request):
     return render_to_response('new.html', context)
 
 def edit(request, post_id):
-    post = Post.objects.get(id=int(post_id), active=True)
+    post = get_object_or_404(Post, id=int(post_id), active=True)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -94,7 +94,7 @@ def edit(request, post_id):
     return render_to_response('edit.html', context)
 
 def delete(request, post_id):
-    post = Post.objects.get(id=int(post_id), active=True)
+    post = get_object_or_404(Post, id=int(post_id), active=True)
     if request.method == 'POST':
         form = DeletePostForm(request.POST, instance=post)
         if form.is_valid():
@@ -115,7 +115,7 @@ def delete(request, post_id):
     return render_to_response('delete.html', context)
 
 def history(request, post_id):
-    post = Post.objects.get(id=int(post_id), active=True)
+    post = get_object_or_404(Post, id=int(post_id), active=True)
     hist = [post]
     while hist[0].old_post:
         hist.insert(0, hist[0].old_post)
