@@ -1,6 +1,9 @@
 from django import template
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse
+
+from post.models import Post
 
 import markdown
 
@@ -23,9 +26,14 @@ more_style = MoreStyleExtension()
 
 class PostReferencesPattern(markdown.inlinepatterns.Pattern):
     def handleMatch(self, m):
+        try:
+            post = Post.objects.get(id=int(m.group(3)), active=True)
+        except Post.DoesNotExist:
+            return
         a = markdown.util.etree.Element('a')
-        a.set('href', '#p{}'.format(m.group(3)))
-        a.text = '#{}'.format(m.group(3))
+        url = reverse('post.views.view', args=(post.thread.id,))
+        a.set('href', '{}#p{}'.format(url, post.id))
+        a.text = '#{}'.format(post.id)
         return a
 class PostReferencesExtension(markdown.Extension):
     def extendMarkdown(self, md, md_globals):
