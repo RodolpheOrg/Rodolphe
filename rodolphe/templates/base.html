@@ -25,4 +25,21 @@
   <a name="content"></a>
   {% block content %}(no content){% endblock %}
 </div>
+
+<script type="text/javascript">
+  function quote_post(url) {
+    textarea = "textarea#id_content";
+    content = $(textarea).val();
+    if (content)
+      content += "\r\n";
+    $.getJSON(url, function(post) {
+      content += "&#" + post.id + " **" + post.author + "** " + '{% trans "wrote" %}' + "\r\n";
+      $.each(post.content.split("\r\n"), function(i, line) {
+        content += "> " + line + "\r\n";
+      });
+      content += "\r\n";
+      $(textarea).val(content);
+    });
+  }
+</script>
 {% endblock %}

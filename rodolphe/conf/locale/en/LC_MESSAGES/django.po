@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 13:11+0100\n"
+"POT-Creation-Date: 2014-01-12 17:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,17 +37,22 @@ msgstr "Content"
 msgid "picture"
 msgstr "Picture"
 
-#: templates/about_fr.html:4 templates/base.html:19
+#: templates/about_en.html:4 templates/about_fr.html:4 templates/base.html:19
 msgid "about"
 msgstr "About"
+
+#: templates/about_en.html:10 templates/about_fr.html:10
+#: templates/base.html:18
+msgid "participate"
+msgstr "Participate"
 
 #: templates/base.html:17 templates/index.html:5
 msgid "home"
 msgstr "Home"
 
-#: templates/base.html:18
-msgid "participate"
-msgstr "Participate"
+#: templates/base.html:36
+msgid "wrote"
+msgstr "wrote"
 
 #: templates/delete.html:5
 msgid "deletion of post"
@@ -61,7 +66,7 @@ msgstr "Back"
 msgid "deleting post"
 msgstr "Deleting Post"
 
-#: templates/delete.html:20 templates/post_content.html:15
+#: templates/delete.html:20 templates/post_content.html:20
 msgid "delete"
 msgstr "Delete"
 
@@ -73,7 +78,7 @@ msgstr "Edition of a post"
 msgid "editing post"
 msgstr "Editing Post"
 
-#: templates/edit.html:20 templates/post_content.html:12
+#: templates/edit.html:20 templates/post_content.html:17
 msgid "edit"
 msgstr "Edit"
 
@@ -105,31 +110,35 @@ msgstr "Create a new thread"
 msgid "create"
 msgstr "Create"
 
-#: templates/post_content.html:8
+#: templates/post_content.html:9
+msgid "quote"
+msgstr "Quote"
+
+#: templates/post_content.html:13
 msgid "history"
 msgstr "History"
 
-#: templates/post_content.html:24
+#: templates/post_content.html:29
 msgid "by_author"
 msgstr "by"
 
-#: templates/post_content.html:25 templates/post_content.html.py:30
+#: templates/post_content.html:30 templates/post_content.html.py:35
 msgid "the_date"
 msgstr "the"
 
-#: templates/post_content.html:26 templates/post_content.html.py:31
+#: templates/post_content.html:31 templates/post_content.html.py:36
 msgid "at_time"
 msgstr "at"
 
-#: templates/post_content.html:29
+#: templates/post_content.html:34
 msgid "edited"
 msgstr "edited"
 
-#: templates/post_content.html:44
+#: templates/post_content.html:49
 msgid "response"
 msgstr "answer"
 
-#: templates/post_content.html:45
+#: templates/post_content.html:50
 msgid "read thread"
 msgstr "Read the thread"
 
@@ -137,10 +146,10 @@ msgstr "Read the thread"
 msgid "reading thread"
 msgstr "Reading of a thread"
 
-#: templates/view.html:19
+#: templates/view.html:20
 msgid "reply to thread"
 msgstr "Reply to this thread"
 
-#: templates/view.html:24
+#: templates/view.html:25
 msgid "reply"
 msgstr "Reply"

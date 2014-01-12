@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'post.views.page'),
     url(r'^view/(?P<post_id>\d+)$', 'post.views.view'),
+    url(r'^raw/(?P<post_id>\d+)$', 'post.views.raw'),
     url(r'^new$', 'post.views.new'),
     url(r'^edit/(?P<post_id>\d+)$', 'post.views.edit'),
     url(r'^del/(?P<post_id>\d+)$', 'post.views.delete'),

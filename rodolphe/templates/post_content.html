@@ -6,6 +6,9 @@
   <div class="panel-heading">
     {% if editable %}
     <div class="btn-group pull-right">
+      <a href="#reply" onclick="quote_post('{% url 'post.views.raw' post.id %}');" title="{% trans 'quote' %}" class="btn btn-success btn-xs">
+	{% bootstrap_icon "comment" %}
+      </a>
       {% if post.old_post %}
       <a href="{%url 'post.views.history' post.id %}" title="{% trans 'history' %}" class="btn btn-info btn-xs">
 	{% bootstrap_icon "time" %}

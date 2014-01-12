@@ -1,11 +1,14 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.translation import get_language
+
 from post.models import Post
 from post.forms import PostForm, DeletePostForm
 
 import datetime
+import json
 
 # Create your views here.
 
@@ -40,6 +43,20 @@ def view(request, post_id):
         'form': form
     })
     return render_to_response('view.html', context)
+
+def raw(request, post_id):
+    post = Post.objects.get(id=int(post_id), active=True)
+    infos = {
+        'id': str(post.id),
+        'author': str(post.author),
+        'created_at': str(post.created_at),
+        'updated_at': str(post.updated_at),
+        'parent': str(post.parent),
+        'old_post': str(post.old_post),
+        'picture': str(post.picture),
+        'content': str(post.content)
+    }
+    return HttpResponse(json.dumps(infos))
 
 def new(request):
     if request.method == 'POST':

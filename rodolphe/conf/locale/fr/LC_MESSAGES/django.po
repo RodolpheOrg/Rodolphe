@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 13:11+0100\n"
+"POT-Creation-Date: 2014-01-12 17:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,8 @@ msgstr "Vous devez au minimum saisir un texte ou insérer une image"
 
 #: post/forms.py:24 post/forms.py:36
 msgid "passwords differ"
-msgstr "Le mot de passe est différent de celui entré lors de la rédaction du message"
+msgstr ""
+"Le mot de passe est différent de celui entré lors de la rédaction du message"
 
 #: post/models.py:33
 msgid "content"
@@ -37,17 +38,22 @@ msgstr "Texte"
 msgid "picture"
 msgstr "Image"
 
-#: templates/about_fr.html:4 templates/base.html:19
+#: templates/about_en.html:4 templates/about_fr.html:4 templates/base.html:19
 msgid "about"
 msgstr "À propos"
+
+#: templates/about_en.html:10 templates/about_fr.html:10
+#: templates/base.html:18
+msgid "participate"
+msgstr "Participer"
 
 #: templates/base.html:17 templates/index.html:5
 msgid "home"
 msgstr "Accueil"
 
-#: templates/base.html:18
-msgid "participate"
-msgstr "Participer"
+#: templates/base.html:36
+msgid "wrote"
+msgstr "a écrit"
 
 #: templates/delete.html:5
 msgid "deletion of post"
@@ -61,7 +67,7 @@ msgstr "Retour"
 msgid "deleting post"
 msgstr "Suppression Message"
 
-#: templates/delete.html:20 templates/post_content.html:15
+#: templates/delete.html:20 templates/post_content.html:20
 msgid "delete"
 msgstr "Supprimer"
 
@@ -73,7 +79,7 @@ msgstr "Édition d'un message"
 msgid "editing post"
 msgstr "Édition Message"
 
-#: templates/edit.html:20 templates/post_content.html:12
+#: templates/edit.html:20 templates/post_content.html:17
 msgid "edit"
 msgstr "Éditer"
 
@@ -105,31 +111,35 @@ msgstr "Création d'un nouveau sujet"
 msgid "create"
 msgstr "Envoyer"
 
-#: templates/post_content.html:8
+#: templates/post_content.html:9
+msgid "quote"
+msgstr "Citer"
+
+#: templates/post_content.html:13
 msgid "history"
 msgstr "Historique"
 
-#: templates/post_content.html:24
+#: templates/post_content.html:29
 msgid "by_author"
 msgstr "par"
 
-#: templates/post_content.html:25 templates/post_content.html.py:30
+#: templates/post_content.html:30 templates/post_content.html.py:35
 msgid "the_date"
 msgstr "le"
 
-#: templates/post_content.html:26 templates/post_content.html.py:31
+#: templates/post_content.html:31 templates/post_content.html.py:36
 msgid "at_time"
 msgstr "à"
 
-#: templates/post_content.html:29
+#: templates/post_content.html:34
 msgid "edited"
 msgstr "modifié"
 
-#: templates/post_content.html:44
+#: templates/post_content.html:49
 msgid "response"
 msgstr "réponse"
 
-#: templates/post_content.html:45
+#: templates/post_content.html:50
 msgid "read thread"
 msgstr "Lire la discussion"
 
@@ -137,10 +147,10 @@ msgstr "Lire la discussion"
 msgid "reading thread"
 msgstr "Lecture d'un sujet"
 
-#: templates/view.html:19
+#: templates/view.html:20
 msgid "reply to thread"
 msgstr "Répondre au sujet"
 
-#: templates/view.html:24
+#: templates/view.html:25
 msgid "reply"
 msgstr "Répondre"
