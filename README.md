@@ -26,6 +26,7 @@ Requirements
 Only tested with this configuration:
 * *Python 3.3.3*
 * [*Django 1.6.1*](https://www.djangoproject.com/)
+* [*Markdown 2.3.1*](https://pypi.python.org/pypi/Markdown)
 * [*Pillow 2.3.0*](https://pypi.python.org/pypi/Pillow)
 * [*django-bootstrap3 2.5.5*](https://github.com/dyve/django-bootstrap3)
 * [*fake-factory 0.3.2*](https://pypi.python.org/pypi/fake-factory/0.3.2)
