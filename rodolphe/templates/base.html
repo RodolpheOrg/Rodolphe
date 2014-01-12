@@ -1,4 +1,5 @@
 {% extends 'bootstrap3/bootstrap3.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% load get_set %}
 
@@ -12,8 +13,8 @@
 
   <nav class="navbar" role="navigation">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'post.views.home' %}">{% bootstrap_icon "home" %} Accueil</a></li>
-      <li><a href="{% url 'post.views.new' %}">{% bootstrap_icon "plus" %} Participer</a></li>
+      <li><a href="{% url 'post.views.home' %}">{% bootstrap_icon "home" %} {% trans "home" %}</a></li>
+      <li><a href="{% url 'post.views.new' %}">{% bootstrap_icon "plus" %} {% trans "participate" %}</a></li>
     </ul>
   </nav>
   

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Lecture d'un Sujet - {{post}}{% endset %}
+{% set pagetitle %}{% trans "reading thread" %} - {{post}}{% endset %}
 
 {% block content %}
 <h2>{{post}}</h2>
@@ -16,12 +17,12 @@
 {% endif %}
 
 <hr/>
-<h2>Répondre au Sujet {{post}}</h2>
+<h2>{% trans "respond to thread" %} {{post}}</h2>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "plus" %} Répondre
+    {% bootstrap_icon "plus" %} {% trans "respond" %}
   </button>
   {% endbuttons %}
 </form>

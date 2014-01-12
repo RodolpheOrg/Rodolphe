@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Accueil{% endset %}
+{% set pagetitle %}{% trans "home" %}{% endset %}
 
 {% block content %}
-<h2>Liste des sujets - Page {{page.number}}</h2>
+<h2>{% trans "list of threads" %} - {% trans "page" %} {{page.number}}</h2>
 <hr/>
 
 {% for post in page %}

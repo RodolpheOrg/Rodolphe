@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Historique d'un Message - {{post}}{% endset %}
+{% set pagetitle %}{% trans "history of post" %} - {{post}}{% endset %}
 
 {% block content %}
 <p>
   <a href="{% url 'post.views.view' post.thread.id %}" class="btn btn-default pull-right">
-    {% bootstrap_icon "hand-left" %} Retour
+    {% bootstrap_icon "hand-left" %} {% trans "back" %}
   </a>
-  <h2>Histrique de {{post}}</h2>
+  <h2>{% trans "history of" %} {{post}}</h2>
 </p>
 <hr/>
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils.translation import ugettext as _
 
 from rodolphe.fields import UUIDField
 
@@ -29,8 +30,8 @@ class Post(models.Model):
     active = models.BooleanField(default=True)
     parent = models.ForeignKey('Post', blank=True, null=True, related_name='post_parent')
     old_post = models.ForeignKey('Post', blank=True, null=True, related_name='post_old')
-    content = models.TextField(blank=True)
-    picture = models.ImageField(upload_to=get_upload_image_name, blank=True)
+    content = models.TextField(blank=True, verbose_name=_('content'))
+    picture = models.ImageField(upload_to=get_upload_image_name, blank=True, verbose_name=_('picture'))
     hash_id = models.BinaryField(max_length=20)
     author = models.ForeignKey(Author)
     created_at = models.DateTimeField()
@@ -47,15 +48,15 @@ class Post(models.Model):
         return self.parent if self.parent else self
 
     @staticmethod
-    def gen_passkey(uuid, key):
+    def gen_password(uuid, key):
         h = hashlib.sha1(uuid.bytes)
         h.update(key.encode())
         return h.digest()
-    def set_passkey(self, key):
-        self.hash_id = self.gen_passkey(self.uuid, key)
+    def set_password(self, key):
+        self.hash_id = self.gen_password(self.uuid, key)
 
     def set_author(self, key):
-        hash_id = self.gen_passkey(self.thread.uuid, key)
+        hash_id = self.gen_password(self.thread.uuid, key)
         try:
             author = Author.objects.get(hash_id=hash_id)
         except Author.DoesNotExist:

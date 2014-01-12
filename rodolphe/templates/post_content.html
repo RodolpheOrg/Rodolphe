@@ -1,17 +1,18 @@
+{% load i18n %}
 {% load bootstrap3 %}
 <div class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
   <div class="panel-heading">
     {% if editable %}
     <div class="btn-group pull-right">
       {% if post.old_post %}
-      <a href="{%url 'post.views.history' post.id %}" title="history" class="btn btn-info btn-xs">
+      <a href="{%url 'post.views.history' post.id %}" title="{% trans 'history' %}" class="btn btn-info btn-xs">
 	{% bootstrap_icon "time" %}
       </a>
       {% endif %}
-      <a href="{%url 'post.views.edit' post.id %}" title="edit" class="btn btn-warning btn-xs">
+      <a href="{%url 'post.views.edit' post.id %}" title="{% trans 'edit' %}" class="btn btn-warning btn-xs">
 	{% bootstrap_icon "edit" %}
       </a>
-      <a href="{%url 'post.views.delete' post.id %}" title="delete" class="btn btn-danger btn-xs">
+      <a href="{%url 'post.views.delete' post.id %}" title="{% trans 'delete' %}" class="btn btn-danger btn-xs">
 	{% bootstrap_icon "remove" %}
       </a>
     </div>
@@ -23,13 +24,13 @@
       {% endif %}
       {{post}}
     {% if headerlink %}</a>{% endif %}
-    par {{post.author}}
-    le {{ post.created_at|date:"DATE_FORMAT" }}
-    à {{ post.created_at|time:"TIME_FORMAT" }}
+    {% trans "by_author" %} {{post.author}}
+    {% trans "the_date" %} {{ post.created_at|date:"DATE_FORMAT" }}
+    {% trans "at_time" %} {{ post.created_at|time:"TIME_FORMAT" }}
     {% if post.updated_at %}
-    (modifié
-    le {{ post.updated_at|date:"DATE_FORMAT" }}
-    à {{ post.updated_at|time:"TIME_FORMAT" }}
+    ({% trans "edited" %}
+    {% trans "the_date" %} {{ post.updated_at|date:"DATE_FORMAT" }}
+    {% trans "at_time" %} {{ post.updated_at|time:"TIME_FORMAT" }}
     )
     {% endif %}
   </div>
@@ -41,8 +42,8 @@
     {% endif %}
     {{post.content|linebreaks}}<br/>
     {% if headerlink %}
-    {{post.responses|length}} réponse{{post.responses|pluralize}}
-    <a href="{% url 'post.views.view' post.id %}" class="btn btn-default pull-right">Lire la discussion</a>
+    {{post.responses|length}} {% trans "response" %}{{post.responses|pluralize}}
+    <a href="{% url 'post.views.view' post.id %}" class="btn btn-default pull-right">{% trans "read thread" %}</a>
     {% endif %}
   </div>
 </div>

@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set pagetitle %}Suppression d'un message{% endset %}
+{% set pagetitle %}{% trans "deletion of post" %}{% endset %}
 
 {% block content %}
 <p>
   <a href="{% url 'post.views.view' post.thread.id %}" class="btn btn-default pull-right">
     {% bootstrap_icon "hand-left" %} Retour
   </a>
-  <h2>Suppression Message {{post}}</h2>
+  <h2>{% trans "deleting post" %} {{post}}</h2>
 </p>
 <hr/>
 
@@ -17,7 +18,7 @@
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "ok" %} Supprimer
+    {% bootstrap_icon "ok" %} {% trans "delete" %}
   </button>
   {% endbuttons %}
 </form>

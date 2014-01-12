@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-12 01:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: post/forms.py:7 post/forms.py:28
+msgid "password"
+msgstr "Mot de passe"
+
+#: post/forms.py:21
+msgid "should put content or picture"
+msgstr "Vous devez au minimum saisir un texte ou insérer une image"
+
+#: post/forms.py:24 post/forms.py:36
+msgid "passwords differ"
+msgstr "Le mot de passe est différent de celui entré lors de la rédaction du message"
+
+#: post/models.py:33
+msgid "content"
+msgstr "Texte"
+
+#: post/models.py:34
+msgid "picture"
+msgstr "Image"
+
+#: templates/base.html:16 templates/index.html:6
+msgid "home"
+msgstr "Accueil"
+
+#: templates/base.html:17
+msgid "participate"
+msgstr "Participer"
+
+#: templates/delete.html:6
+msgid "deletion of post"
+msgstr "Suppression d'un message"
+
+#: templates/delete.html:13
+msgid "deleting post"
+msgstr "Suppression Message"
+
+#: templates/delete.html:21 templates/post_content.html:15
+msgid "delete"
+msgstr "Supprimer"
+
+#: templates/edit.html:6
+msgid "edition of post"
+msgstr "Édition d'un message"
+
+#: templates/edit.html:13
+msgid "editing post"
+msgstr "Édition Message"
+
+#: templates/edit.html:21 templates/post_content.html:12
+msgid "edit"
+msgstr "Éditer"
+
+#: templates/history.html:6
+msgid "history of post"
+msgstr "Historique d'un message"
+
+#: templates/history.html:11
+msgid "back"
+msgstr "Retour"
+
+#: templates/history.html:13
+msgid "history of"
+msgstr "Historique de"
+
+#: templates/index.html:9
+msgid "list of threads"
+msgstr "Liste des sujets"
+
+#: templates/index.html:9
+msgid "page"
+msgstr "Page"
+
+#: templates/new.html:5
+msgid "new thread"
+msgstr "Nouveau Sujet"
+
+#: templates/new_form.html:3
+msgid "creating new thread"
+msgstr "Création d'un nouveau sujet"
+
+#: templates/new_form.html:9
+msgid "create"
+msgstr "Envoyer"
+
+#: templates/post_content.html:8
+msgid "history"
+msgstr "Historique"
+
+#: templates/post_content.html:27
+msgid "by_author"
+msgstr "par"
+
+#: templates/post_content.html:28 templates/post_content.html.py:32
+msgid "the_date"
+msgstr "le"
+
+#: templates/post_content.html:29 templates/post_content.html.py:33
+msgid "at_time"
+msgstr "à"
+
+#: templates/post_content.html:31
+msgid "edited"
+msgstr "modifié"
+
+#: templates/post_content.html:45
+msgid "response"
+msgstr "réponse"
+
+#: templates/post_content.html:46
+msgid "read thread"
+msgstr "Lire la discussion"
+
+#: templates/view.html:6
+msgid "reading thread"
+msgstr "Lecture d'un sujet"
+
+#: templates/view.html:20
+msgid "respond to thread"
+msgstr "Répondre au sujet"
+
+#: templates/view.html:25
+msgid "respond"
+msgstr "Répondre"
