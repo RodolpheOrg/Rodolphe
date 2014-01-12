@@ -16,12 +16,13 @@
 {% endif %}
 
 <hr/>
-<h2>{% trans "respond to thread" %} {{post}}</h2>
+<a id="reply"></a>
+<h2>{% trans "reply to thread" %} {{post}}</h2>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "plus" %} {% trans "respond" %}
+    {% bootstrap_icon "plus" %} {% trans "reply" %}
   </button>
   {% endbuttons %}
 </form>

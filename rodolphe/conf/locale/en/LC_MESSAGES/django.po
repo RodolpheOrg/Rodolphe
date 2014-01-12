@@ -138,9 +138,9 @@ msgid "reading thread"
 msgstr "Reading of a thread"
 
 #: templates/view.html:19
-msgid "respond to thread"
+msgid "reply to thread"
 msgstr "Reply to this thread"
 
 #: templates/view.html:24
-msgid "respond"
+msgid "reply"
 msgstr "Reply"
