@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load markup %}
 {% load bootstrap3 %}
-<a id="p{{post.id}}"></a>
+<a name="p{{post.id}}"></a>
 <div class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
   <div class="panel-heading">
     {% if editable %}

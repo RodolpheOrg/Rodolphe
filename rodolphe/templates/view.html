@@ -16,7 +16,7 @@
 {% endif %}
 
 <hr/>
-<a id="reply"></a>
+<a name="reply"></a>
 <h2>{% trans "reply to thread" %} {{post}}</h2>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
   {% bootstrap_form form %}
