@@ -13,7 +13,7 @@ import json
 # Create your views here.
 
 def page(request):
-    paginator = Paginator(Post.objects.filter(active=True, parent=None).order_by('-id'), 10)
+    paginator = Paginator(Post.objects.filter(active=True, parent=None).order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
     try:
         posts = paginator.page(page_id)
@@ -34,8 +34,10 @@ def view(request, post_id):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=Post.default(parent=post))
         if form.is_valid():
-            form.save()
+            resp = form.save()
             form = PostForm()
+            post.last_resp_at = resp.created_at
+            post.save()
     else:
         form = PostForm()
     context = RequestContext(request, {

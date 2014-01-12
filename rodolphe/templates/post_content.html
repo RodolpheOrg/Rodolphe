@@ -49,6 +49,13 @@
     <hr style="border-style: dashed;"/>
     <p>
       <b>{{post.responses|length}} {% trans "response" %}{{post.responses|pluralize}}</b>
+      {% if post.responses %}
+      <small>
+	&nbsp;({% trans "last response" %}
+	{% trans "the_date" %} <i>{{ post.last_resp_at|date:"DATE_FORMAT" }}</i>
+	{% trans "at_time" %} <i>{{ post.last_resp_at|time:"TIME_FORMAT" }}</i>)
+      </small>
+      {% endif %}
       <a href="{% url 'post.views.view' post.id %}" class="btn btn-default pull-right">{% trans "read thread" %}</a>
     </p>
     {% endif %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 19:19+0100\n"
+"POT-Creation-Date: 2014-01-12 20:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,10 +133,12 @@ msgid "by_author"
 msgstr "par"
 
 #: templates/post_content.html:30 templates/post_content.html.py:35
+#: templates/post_content.html:55
 msgid "the_date"
 msgstr "le"
 
 #: templates/post_content.html:31 templates/post_content.html.py:36
+#: templates/post_content.html:56
 msgid "at_time"
 msgstr "à"
 
@@ -148,7 +150,11 @@ msgstr "modifié"
 msgid "response"
 msgstr "réponse"
 
-#: templates/post_content.html:52
+#: templates/post_content.html:54
+msgid "last response"
+msgstr "dernière réponse"
+
+#: templates/post_content.html:59
 msgid "read thread"
 msgstr "Lire la discussion"
 

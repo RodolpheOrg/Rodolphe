@@ -36,6 +36,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author)
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField(null=True)
+    last_resp_at = models.DateTimeField()
 
     def __str__(self):
         return '#{}'.format(self.id)
@@ -66,4 +67,5 @@ class Post(models.Model):
 
     @classmethod
     def default(cls, *args, **kwargs):
-        return cls(uuid=uuid4(), created_at=timezone.now(), *args, **kwargs)
+        now = timezone.now()
+        return cls(uuid=uuid4(), created_at=now, last_resp_at=now, *args, **kwargs)
