@@ -16,7 +16,11 @@ Quick Start
 
   By copying `rodolphe/rodolphe/local_settings.py.example` into `rodolphe/rodolphe/local_settings.py` and setting website's name, secret key, database, language.
 
-4. Deploy
+4. Run Django `syncdb`
+
+        python manage.py syncdb
+
+5. Deploy
 
   Serve statically `/media/` directory, and deploy the application with your favorite server.
 
