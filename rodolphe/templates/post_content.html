@@ -19,19 +19,18 @@
     {% endif %}
     
     {% if headerlink %}<a href="{% url 'post.views.view' post.id %}">{% bootstrap_icon "link" %} {% endif %}
-      {% if post.title %}
-      {{post.title}} - 
-      {% endif %}
-      {{post}}
+      <b>{{post}}</b>
     {% if headerlink %}</a>{% endif %}
-    {% trans "by_author" %} {{post.author}}
-    {% trans "the_date" %} {{ post.created_at|date:"DATE_FORMAT" }}
-    {% trans "at_time" %} {{ post.created_at|time:"TIME_FORMAT" }}
+    {% trans "by_author" %} <b>{{post.author}}</b>
+    {% trans "the_date" %} <i>{{ post.created_at|date:"DATE_FORMAT" }}</i>
+    {% trans "at_time" %} <i>{{ post.created_at|time:"TIME_FORMAT" }}</i>
     {% if post.updated_at %}
-    ({% trans "edited" %}
-    {% trans "the_date" %} {{ post.updated_at|date:"DATE_FORMAT" }}
-    {% trans "at_time" %} {{ post.updated_at|time:"TIME_FORMAT" }}
-    )
+    <small>
+      ({% trans "edited" %}
+      {% trans "the_date" %} <i>{{ post.updated_at|date:"DATE_FORMAT" }}</i>
+      {% trans "at_time" %} <i>{{ post.updated_at|time:"TIME_FORMAT" }}</i>
+      )
+    </small>
     {% endif %}
   </div>
   <div class="panel-body">
