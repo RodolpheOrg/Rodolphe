@@ -4,5 +4,24 @@
 {% block pagetitle %}{% trans "about" %}{% endblock %}
 
 {% block content %}
+<h2>Presentation</h2>
+<p>
+  <strong>{{SITE_NAME}}</strong> is an anonymous platform of content sharing, pictures or simple texts.<br/>
+  The website does not require any account to participate. You can indeed create a new thread via <a href="{% url 'post.views.new' %}">{% trans "participate" %}</a>, or reply to any discussion.
+</p>
 
+<h2>Participate</h2>
+<p>
+  We distinguish two types of posts: threads and replies. Both are composed of a picture and a descriptive text (one or the other may be omitted).<br/>
+  Not needing any account, the website will ask you a password each time you write a message: this password let you edit or delete the post later.
+</p>
+
+<h2>Anonymity</h2>
+<p>
+  The application is totally anonymous, no data about users are saved.<br/>
+  Just one thing, to make discussions easier, an author name is assigned to each post. This name is generated with the current thread and the password you enter. Thus, if you use the same password in a same thread, you will always get the same author name.
+</p>
+
+<h2>Source code</h2>
+<p><strong>Rodolphe</strong> is a free software, under <em>BSD</em> license, whose source code is available at <a href="https://github.com/entwanne/Rodolphe">https://github.com/entwanne/Rodolphe</a></p>
 {% endblock %}
