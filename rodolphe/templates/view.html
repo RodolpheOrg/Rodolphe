@@ -11,7 +11,11 @@
 
 {% if post.responses %}
 {% for resp in post.responses %}
+{% ifequal resp.author post.author %}
+{% include 'post_content.html' with header=True post=resp editable=True %}
+{% else %}
 {% include 'post_content.html' with post=resp editable=True %}
+{% endifequal %}
 {% endfor %}
 {% endif %}
 
