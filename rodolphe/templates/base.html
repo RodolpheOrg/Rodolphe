@@ -3,13 +3,13 @@
 {% load bootstrap3 %}
 {% load macros %}
 
-{% def pagetitle %}{% block pagetitle %}{% endblock %}{% enddef %}
-{% block bootstrap3_title %}{{SITE_NAME}} - {% macro pagetitle %}{% endblock %}
+{% define pagetitle %}{% block pagetitle %}{% endblock %}{% enddefine %}
+{% block bootstrap3_title %}{{SITE_NAME}} - {% # pagetitle %}{% endblock %}
 
 {% block bootstrap3_content %}
 <div class="container">
   <div class="page-header">
-    <h1>{{SITE_NAME}} <small>{% macro pagetitle %}</small></h1>
+    <h1>{{SITE_NAME}} <small>{% # pagetitle %}</small></h1>
   </div>
 
   <nav class="navbar" role="navigation">

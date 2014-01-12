@@ -2,36 +2,40 @@ from django import template
 
 register = template.Library()
 
-#set_values = {}
 
-class SetNode(template.Node):
-    def __init__(self, macros, key, nodes):
-        macros[key] = nodes
+def get_macros(parser):
+    if not hasattr(parser, '_macros'):
+        parser._macros = {}
+    return parser._macros
+
+
+class DefineNode(template.Node):
+    def __init__(self, nodes):
+        self.nodes = nodes
     def render(self, context):
         return ''
 
+@register.tag('define')
+def do_define_macro(parser, token):
+    _, name = token.split_contents()
+    nodelist = parser.parse(('enddefine',))
+    parser.delete_first_token() # Delete 'enddefine' tag
+    macro = DefineNode(nodelist)
+    get_macros(parser)[name] = macro
+    return macro
+
+
 class GetNode(template.Node):
-    def __init__(self, macros, key):
+    def __init__(self, macros, name):
         self.macros = macros
-        self.key = key
+        self.name = name
     def render(self, context):
         try:
-            return ''.join(v.render(context) for v in self.macros[self.key])
+            return ''.join(v.render(context) for v in self.macros[self.name].nodes)
         except KeyError:
             return ''
 
-@register.tag('def')
-def do_set_macro(parser, token):
-    _, key = token.split_contents()
-    nodelist = parser.parse(('enddef',))
-    parser.delete_first_token() # Delete 'endset' tag
-    if not hasattr(parser, '_set_macros'):
-        parser._set_macros = {}
-    return SetNode(parser._set_macros, key, nodelist)
-
-@register.tag('macro')
+@register.tag('#')
 def do_get_macro(parser, token):
-    _, key = token.split_contents()
-    if not hasattr(parser, '_set_macros'):
-        parser._set_macros = {}
-    return GetNode(parser._set_macros, key)
+    _, name = token.split_contents()
+    return GetNode(get_macros(parser), name)
