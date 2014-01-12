@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-12 02:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: post/forms.py:7 post/forms.py:28
+msgid "password"
+msgstr "Password"
+
+#: post/forms.py:21
+msgid "should put content or picture"
+msgstr "You should put a text or a picture"
+
+#: post/forms.py:24 post/forms.py:36
+msgid "passwords differ"
+msgstr "You should enter the password you put when you created the post"
+
+#: post/models.py:33
+msgid "content"
+msgstr "Content"
+
+#: post/models.py:34
+msgid "picture"
+msgstr "Picture"
+
+#: templates/base.html:16 templates/index.html:6
+msgid "home"
+msgstr "Home"
+
+#: templates/base.html:17
+msgid "participate"
+msgstr "Participate"
+
+#: templates/delete.html:6
+msgid "deletion of post"
+msgstr "Deletion of a post"
+
+#: templates/delete.html:13
+msgid "deleting post"
+msgstr "Deleting Post"
+
+#: templates/delete.html:21 templates/post_content.html:15
+msgid "delete"
+msgstr "Delete"
+
+#: templates/edit.html:6
+msgid "edition of post"
+msgstr "Edition of a post"
+
+#: templates/edit.html:13
+msgid "editing post"
+msgstr "Editing Post"
+
+#: templates/edit.html:21 templates/post_content.html:12
+msgid "edit"
+msgstr "Edit"
+
+#: templates/history.html:6
+msgid "history of post"
+msgstr "History of a post"
+
+#: templates/history.html:11
+msgid "back"
+msgstr "Back"
+
+#: templates/history.html:13
+msgid "history of"
+msgstr "History of"
+
+#: templates/index.html:9
+msgid "list of threads"
+msgstr "List of threads"
+
+#: templates/index.html:9
+msgid "page"
+msgstr "Page"
+
+#: templates/new.html:5
+msgid "new thread"
+msgstr "New Thread"
+
+#: templates/new_form.html:3
+msgid "creating new thread"
+msgstr "Create a new thread"
+
+#: templates/new_form.html:9
+msgid "create"
+msgstr "Create"
+
+#: templates/post_content.html:8
+msgid "history"
+msgstr "History"
+
+#: templates/post_content.html:27
+msgid "by_author"
+msgstr "by"
+
+#: templates/post_content.html:28 templates/post_content.html.py:32
+msgid "the_date"
+msgstr "the"
+
+#: templates/post_content.html:29 templates/post_content.html.py:33
+msgid "at_time"
+msgstr "at"
+
+#: templates/post_content.html:31
+msgid "edited"
+msgstr "edited"
+
+#: templates/post_content.html:45
+msgid "response"
+msgstr "answer"
+
+#: templates/post_content.html:46
+msgid "read thread"
+msgstr "Read the thread"
+
+#: templates/view.html:6
+msgid "reading thread"
+msgstr "Reading of a thread"
+
+#: templates/view.html:20
+msgid "respond to thread"
+msgstr "Reply to this thread"
+
+#: templates/view.html:25
+msgid "respond"
+msgstr "Reply"
