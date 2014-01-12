@@ -3,11 +3,11 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.translation import get_language
+from django.utils import timezone
 
 from post.models import Post
 from post.forms import PostForm, DeletePostForm
 
-import datetime
 import json
 
 # Create your views here.
@@ -82,7 +82,7 @@ def edit(request, post_id):
             old.save()
             post = form.save(commit=False)
             post.old_post = old
-            post.updated_at = datetime.datetime.now()
+            post.updated_at = timezone.now()
             post.save()
             return redirect(view, post.thread.id)
     else:

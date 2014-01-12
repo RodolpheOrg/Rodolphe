@@ -1,12 +1,12 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext as _
+from django.utils import timezone
 
 from rodolphe.fields import UUIDField
 
 from uuid import uuid4
 import hashlib
-import datetime
 import os.path
 from faker import Faker
 
@@ -66,4 +66,4 @@ class Post(models.Model):
 
     @classmethod
     def default(cls, *args, **kwargs):
-        return cls(uuid=uuid4(), created_at=datetime.datetime.now(), *args, **kwargs)
+        return cls(uuid=uuid4(), created_at=timezone.now(), *args, **kwargs)
