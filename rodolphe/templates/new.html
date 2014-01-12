@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load bootstrap3 %}
 
 {% block pagetitle %}{% trans "new thread" %}{% endblock %}
 
 {% block content %}
-{% include 'new_form.html' %}
+<h2>{% trans "creating new thread" %}</h2>
+<hr/>
+<form action="{% url 'post.views.new' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+    {% bootstrap_icon "plus" %} {% trans "create" %}
+  </button>
+  {% endbuttons %}
+</form>
 {% endblock %}
