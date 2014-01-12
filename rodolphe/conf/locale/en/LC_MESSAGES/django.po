@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 17:27+0100\n"
+"POT-Creation-Date: 2014-01-12 19:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,9 +37,18 @@ msgstr "Content"
 msgid "picture"
 msgstr "Picture"
 
-#: templates/about_en.html:4 templates/about_fr.html:4 templates/base.html:19
+#: templates/404.html:4 templates/about_en.html:4 templates/about_fr.html:4
+#: templates/base.html:19
 msgid "about"
 msgstr "About"
+
+#: templates/404.html:7
+msgid "page not found"
+msgstr "Page not found"
+
+#: templates/404.html:8
+msgid "can't found page"
+msgstr "The page you were looking for could not be found."
 
 #: templates/about_en.html:10 templates/about_fr.html:10
 #: templates/base.html:18
@@ -50,7 +59,7 @@ msgstr "Participate"
 msgid "home"
 msgstr "Home"
 
-#: templates/base.html:36
+#: templates/base.html:41
 msgid "wrote"
 msgstr "wrote"
 
@@ -134,11 +143,11 @@ msgstr "at"
 msgid "edited"
 msgstr "edited"
 
-#: templates/post_content.html:49
+#: templates/post_content.html:51
 msgid "response"
 msgstr "answer"
 
-#: templates/post_content.html:50
+#: templates/post_content.html:52
 msgid "read thread"
 msgstr "Read the thread"
 
@@ -146,10 +155,10 @@ msgstr "Read the thread"
 msgid "reading thread"
 msgstr "Reading of a thread"
 
-#: templates/view.html:20
+#: templates/view.html:24
 msgid "reply to thread"
 msgstr "Reply to this thread"
 
-#: templates/view.html:25
+#: templates/view.html:29
 msgid "reply"
 msgstr "Reply"

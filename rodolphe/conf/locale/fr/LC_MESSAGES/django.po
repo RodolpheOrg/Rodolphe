@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 17:27+0100\n"
+"POT-Creation-Date: 2014-01-12 19:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,9 +38,18 @@ msgstr "Texte"
 msgid "picture"
 msgstr "Image"
 
-#: templates/about_en.html:4 templates/about_fr.html:4 templates/base.html:19
+#: templates/404.html:4 templates/about_en.html:4 templates/about_fr.html:4
+#: templates/base.html:19
 msgid "about"
 msgstr "À propos"
+
+#: templates/404.html:7
+msgid "page not found"
+msgstr "Page introuvable"
+
+#: templates/404.html:8
+msgid "can't found page"
+msgstr "La page à laquelle vous tentez d'accéder est introuvable."
 
 #: templates/about_en.html:10 templates/about_fr.html:10
 #: templates/base.html:18
@@ -51,7 +60,7 @@ msgstr "Participer"
 msgid "home"
 msgstr "Accueil"
 
-#: templates/base.html:36
+#: templates/base.html:41
 msgid "wrote"
 msgstr "a écrit"
 
@@ -135,11 +144,11 @@ msgstr "à"
 msgid "edited"
 msgstr "modifié"
 
-#: templates/post_content.html:49
+#: templates/post_content.html:51
 msgid "response"
 msgstr "réponse"
 
-#: templates/post_content.html:50
+#: templates/post_content.html:52
 msgid "read thread"
 msgstr "Lire la discussion"
 
@@ -147,10 +156,10 @@ msgstr "Lire la discussion"
 msgid "reading thread"
 msgstr "Lecture d'un sujet"
 
-#: templates/view.html:20
+#: templates/view.html:24
 msgid "reply to thread"
 msgstr "Répondre au sujet"
 
-#: templates/view.html:25
+#: templates/view.html:29
 msgid "reply"
 msgstr "Répondre"
