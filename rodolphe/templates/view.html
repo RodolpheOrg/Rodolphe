@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load bootstrap3 %}
-{% load get_set %}
 
-{% set pagetitle %}{% trans "reading thread" %} - {{post}}{% endset %}
+{% block pagetitle %}{% trans "reading thread" %} - {{post}}{% endblock %}
 
 {% block content %}
 <h2>{{post}}</h2>

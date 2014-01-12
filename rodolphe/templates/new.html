@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load get_set %}
 
-{% set pagetitle %}{% trans "new thread" %}{% endset %}
+{% block pagetitle %}{% trans "new thread" %}{% endblock %}
 
 {% block content %}
 {% include 'new_form.html' %}

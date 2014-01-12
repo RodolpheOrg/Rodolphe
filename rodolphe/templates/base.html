@@ -1,14 +1,15 @@
 {% extends 'bootstrap3/bootstrap3.html' %}
 {% load i18n %}
 {% load bootstrap3 %}
-{% load get_set %}
+{% load macros %}
 
-{% block bootstrap3_title %}{{SITE_NAME}} - {% get pagetitle %}{% endblock %}
+{% def pagetitle %}{% block pagetitle %}{% endblock %}{% enddef %}
+{% block bootstrap3_title %}{{SITE_NAME}} - {% macro pagetitle %}{% endblock %}
 
 {% block bootstrap3_content %}
 <div class="container">
   <div class="page-header">
-    <h1>{{SITE_NAME}} <small>{% get pagetitle %}</small></h1>
+    <h1>{{SITE_NAME}} <small>{% macro pagetitle %}</small></h1>
   </div>
 
   <nav class="navbar" role="navigation">

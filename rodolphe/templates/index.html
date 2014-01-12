@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load bootstrap3 %}
-{% load get_set %}
 
-{% set pagetitle %}{% trans "home" %}{% endset %}
+{% block pagetitle %}{% trans "home" %}{% endblock %}
 
 {% block content %}
 <h2>{% trans "list of threads" %} - {% trans "page" %} {{page.number}}</h2>
