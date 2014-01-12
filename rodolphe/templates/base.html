@@ -2,14 +2,12 @@
 {% load bootstrap3 %}
 {% load get_set %}
 
-{% set maintitle %}Ich bin Rodolphe{% endset %}
-
-{% block bootstrap3_title %}{% get maintitle %} - {% get pagetitle %}{% endblock %}
+{% block bootstrap3_title %}{{SITE_NAME}} - {% get pagetitle %}{% endblock %}
 
 {% block bootstrap3_content %}
 <div class="container">
   <div class="page-header">
-    <h1>{% get maintitle %} <small>{% get pagetitle %}</small></h1>
+    <h1>{{SITE_NAME}} <small>{% get pagetitle %}</small></h1>
   </div>
 
   <nav class="navbar" role="navigation">
