@@ -13,5 +13,7 @@ urlpatterns = patterns('',
     url(r'^del/(?P<post_id>\d+)$', 'post.views.delete'),
     url(r'^h/(?P<post_id>\d+)$', 'post.views.history'),
 
+    url(r'^about$', 'post.views.about'),
+
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

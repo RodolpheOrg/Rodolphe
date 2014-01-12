@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.translation import get_language
 from post.models import Post
 from post.forms import PostForm, DeletePostForm
 
@@ -106,3 +107,7 @@ def history(request, post_id):
         'hist': hist
     })
     return render_to_response('history.html', context)
+
+def about(request):
+    tpl_name = 'about_{}.html'.format(get_language().split('-')[0])
+    return render_to_response(tpl_name, RequestContext(request))

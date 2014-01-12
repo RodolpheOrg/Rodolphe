@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 02:05+0100\n"
+"POT-Creation-Date: 2014-01-12 13:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,55 +37,59 @@ msgstr "Content"
 msgid "picture"
 msgstr "Picture"
 
-#: templates/base.html:16 templates/index.html:6
+#: templates/about_fr.html:4 templates/base.html:19
+msgid "about"
+msgstr "About"
+
+#: templates/base.html:17 templates/index.html:5
 msgid "home"
 msgstr "Home"
 
-#: templates/base.html:17
+#: templates/base.html:18
 msgid "participate"
 msgstr "Participate"
 
-#: templates/delete.html:6
+#: templates/delete.html:5
 msgid "deletion of post"
 msgstr "Deletion of a post"
 
-#: templates/delete.html:13
-msgid "deleting post"
-msgstr "Deleting Post"
-
-#: templates/delete.html:21 templates/post_content.html:15
-msgid "delete"
-msgstr "Delete"
-
-#: templates/edit.html:6
-msgid "edition of post"
-msgstr "Edition of a post"
-
-#: templates/edit.html:13
-msgid "editing post"
-msgstr "Editing Post"
-
-#: templates/edit.html:21 templates/post_content.html:12
-msgid "edit"
-msgstr "Edit"
-
-#: templates/history.html:6
-msgid "history of post"
-msgstr "History of a post"
-
-#: templates/history.html:11
+#: templates/delete.html:10 templates/edit.html:10 templates/history.html:10
 msgid "back"
 msgstr "Back"
 
-#: templates/history.html:13
+#: templates/delete.html:12
+msgid "deleting post"
+msgstr "Deleting Post"
+
+#: templates/delete.html:20 templates/post_content.html:15
+msgid "delete"
+msgstr "Delete"
+
+#: templates/edit.html:5
+msgid "edition of post"
+msgstr "Edition of a post"
+
+#: templates/edit.html:12
+msgid "editing post"
+msgstr "Editing Post"
+
+#: templates/edit.html:20 templates/post_content.html:12
+msgid "edit"
+msgstr "Edit"
+
+#: templates/history.html:5
+msgid "history of post"
+msgstr "History of a post"
+
+#: templates/history.html:12
 msgid "history of"
 msgstr "History of"
 
-#: templates/index.html:9
+#: templates/index.html:8
 msgid "list of threads"
 msgstr "List of threads"
 
-#: templates/index.html:9
+#: templates/index.html:8
 msgid "page"
 msgstr "Page"
 
@@ -93,11 +97,11 @@ msgstr "Page"
 msgid "new thread"
 msgstr "New Thread"
 
-#: templates/new_form.html:3
+#: templates/new.html:8
 msgid "creating new thread"
 msgstr "Create a new thread"
 
-#: templates/new_form.html:9
+#: templates/new.html:14
 msgid "create"
 msgstr "Create"
 
@@ -105,38 +109,38 @@ msgstr "Create"
 msgid "history"
 msgstr "History"
 
-#: templates/post_content.html:27
+#: templates/post_content.html:24
 msgid "by_author"
 msgstr "by"
 
-#: templates/post_content.html:28 templates/post_content.html.py:32
+#: templates/post_content.html:25 templates/post_content.html.py:30
 msgid "the_date"
 msgstr "the"
 
-#: templates/post_content.html:29 templates/post_content.html.py:33
+#: templates/post_content.html:26 templates/post_content.html.py:31
 msgid "at_time"
 msgstr "at"
 
-#: templates/post_content.html:31
+#: templates/post_content.html:29
 msgid "edited"
 msgstr "edited"
 
-#: templates/post_content.html:45
+#: templates/post_content.html:44
 msgid "response"
 msgstr "answer"
 
-#: templates/post_content.html:46
+#: templates/post_content.html:45
 msgid "read thread"
 msgstr "Read the thread"
 
-#: templates/view.html:6
+#: templates/view.html:5
 msgid "reading thread"
 msgstr "Reading of a thread"
 
-#: templates/view.html:20
+#: templates/view.html:19
 msgid "respond to thread"
 msgstr "Reply to this thread"
 
-#: templates/view.html:25
+#: templates/view.html:24
 msgid "respond"
 msgstr "Reply"
