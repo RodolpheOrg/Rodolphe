@@ -15,6 +15,6 @@ python manage.py syncdb
 pip install gunicorn
 gunicorn -D rodolphe.wsgi:application
 
-# Edit ../nginx_gunicorn.conf (set root in /media/ to current directory)
+# Edit ../nginx_gunicorn.conf (set user, and root in /media/ to current directory)
 sudo cp ../nginx_gunicorn.conf /etc/nginx/nginx.conf
 sudo systemctl start nginx
