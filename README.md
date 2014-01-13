@@ -34,5 +34,7 @@ Only tested with this configuration:
 * [*Pillow 2.3.0*](https://pypi.python.org/pypi/Pillow)
 * [*django-bootstrap3 2.5.5*](https://github.com/dyve/django-bootstrap3)
 * [*fake-factory 0.3.2*](https://pypi.python.org/pypi/fake-factory/0.3.2)
+* [*django-simple-captcha 0.4.1*](https://github.com/mbi/django-simple-captcha)
+  * [*six 1.5.2*](https://pypi.python.org/pypi/six)
 
 (see [stable-req.txt](stable-req.txt))
