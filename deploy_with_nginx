@@ -1,0 +1,20 @@
+# Executed with a user called X
+# Python3
+
+git clone git@github.com:entwanne/Rodolphe.git
+cd Rodolphe
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+
+cd rodolphe
+cp rodolphe/local_setings.py.example rodolple/local_settings.py
+# Edit this previous file: SITE_NAME, SECRET_KEY, DATABASES, LANGUAGE_CODE, TIME_ZONE
+python manage.py syncdb
+
+pip install gunicorn
+gunicorn -D rodolphe.wsgi:application
+
+# Edit ../nginx_gunicorn.conf (set root in /media/ to current directory)
+sudo cp ../nginx_gunicorn.conf /etc/nginx/nginx.conf
+sudo systemctl start nginx
