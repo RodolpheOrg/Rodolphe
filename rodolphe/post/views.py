@@ -13,8 +13,10 @@ import json
 
 # Create your views here.
 
+
 def page(request):
-    paginator = Paginator(Post.objects.filter(active=True, parent=None).order_by('-last_resp_at'), 10)
+    paginator = Paginator(Post.objects.filter(active=True, parent=None)
+                          .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
     try:
         posts = paginator.page(page_id)
@@ -27,13 +29,14 @@ def page(request):
         'form': PostForm()
     })
     return render_to_response('index.html', context)
-
 home = page
+
 
 def view(request, post_id):
     post = get_object_or_404(Post, id=int(post_id), active=True, parent=None)
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=Post.default(parent=post))
+        form = PostForm(request.POST, request.FILES,
+                        instance=Post.default(parent=post))
         if form.is_valid():
             resp = form.save()
             form = PostForm()
@@ -46,6 +49,7 @@ def view(request, post_id):
         'form': form
     })
     return render_to_response('view.html', context)
+
 
 def raw(request, post_id):
     post = get_object_or_404(Post, id=int(post_id), active=True)
@@ -61,6 +65,7 @@ def raw(request, post_id):
     }
     return HttpResponse(json.dumps(infos))
 
+
 def new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=Post.default())
@@ -73,6 +78,7 @@ def new(request):
         'form': form
     })
     return render_to_response('new.html', context)
+
 
 def edit(request, post_id):
     post = get_object_or_404(Post, id=int(post_id), active=True)
@@ -96,6 +102,7 @@ def edit(request, post_id):
     })
     return render_to_response('edit.html', context)
 
+
 def delete(request, post_id):
     post = get_object_or_404(Post, id=int(post_id), active=True)
     if request.method == 'POST':
@@ -117,6 +124,7 @@ def delete(request, post_id):
     })
     return render_to_response('delete.html', context)
 
+
 def history(request, post_id):
     post = get_object_or_404(Post, id=int(post_id), active=True)
     hist = [post]
@@ -128,9 +136,11 @@ def history(request, post_id):
     })
     return render_to_response('history.html', context)
 
+
 def about(request):
     tpl_name = 'about_{}.html'.format(get_language().split('-')[0])
     return render_to_response(tpl_name, RequestContext(request))
+
 
 def markdown(request):
     examples = [
@@ -144,7 +154,8 @@ def markdown(request):
         (_("post reference"), "&#1"),
         (_("list"), "* a\n* b\n    * c\n* d"),
         (_("ordered list"), "1. a\n2. b"),
-        (_("title"), "# Title1\n## Title 2\n### Title 3\n#### Title 4\n##### Title5\n###### Title 6"),
+        (_("title"), "# Title1\n## Title 2\n### Title 3\n#### Title 4\n"
+         "##### Title5\n###### Title 6"),
         (_("title"), "Title 1\n=======\n\nTitle 2\n-------"),
         (_("quotation"), "> quote\n>> subquote"),
         (_("code"), "`abcd`"),

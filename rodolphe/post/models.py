@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 from django.utils import timezone
 
-from rodolphe.fields import UUIDField
+from utils.fields import UUIDField
 
 from uuid import uuid4
 import hashlib
@@ -14,9 +14,11 @@ faker = Faker(settings.LANGUAGE_CODE)
 
 # Create your models here.
 
+
 def get_upload_image_name(_, filename):
     _, ext = os.path.splitext(filename)
     return 'pics/{}{}'.format(uuid4().int, ext)
+
 
 class Author(models.Model):
     hash_id = models.BinaryField(max_length=20)
@@ -25,13 +27,17 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+
 class Post(models.Model):
     uuid = UUIDField()
     active = models.BooleanField(default=True)
-    parent = models.ForeignKey('Post', blank=True, null=True, related_name='post_parent')
-    old_post = models.ForeignKey('Post', blank=True, null=True, related_name='post_old')
+    parent = models.ForeignKey('Post', blank=True, null=True,
+                               related_name='post_parent')
+    old_post = models.ForeignKey('Post', blank=True, null=True,
+                                 related_name='post_old')
     content = models.TextField(blank=True, verbose_name=_('content'))
-    picture = models.ImageField(upload_to=get_upload_image_name, blank=True, verbose_name=_('picture'))
+    picture = models.ImageField(upload_to=get_upload_image_name, blank=True,
+                                verbose_name=_('picture'))
     hash_id = models.BinaryField(max_length=20)
     author = models.ForeignKey(Author)
     created_at = models.DateTimeField()
@@ -44,6 +50,7 @@ class Post(models.Model):
     @property
     def responses(self):
         return Post.objects.filter(active=True, parent=self)
+
     @property
     def thread(self):
         return self.parent if self.parent else self
@@ -53,6 +60,7 @@ class Post(models.Model):
         h = hashlib.sha1(uuid.bytes)
         h.update(key.encode())
         return h.digest()
+
     def set_password(self, key):
         self.hash_id = self.gen_password(self.uuid, key)
 
@@ -68,4 +76,8 @@ class Post(models.Model):
     @classmethod
     def default(cls, *args, **kwargs):
         now = timezone.now()
-        return cls(uuid=uuid4(), created_at=now, last_resp_at=now, *args, **kwargs)
+        return cls(uuid=uuid4(),
+                   created_at=now,
+                   last_resp_at=now,
+                   *args,
+                   **kwargs)
