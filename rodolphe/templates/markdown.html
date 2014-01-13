@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load markup %}
+
+{% block pagetitle %}{% trans "markdown" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "markdown tags" %}</h2>
+<hr/>
+<table class="table table-striped table-bordered">
+  <thead>
+    <th width="15%">{% trans "tag name" %}</th>
+    <th width="25%">{% trans "markdown tag" %}</th>
+    <th width="50%">{% trans "rendering" %}</th>
+  </thead>
+  <tbody>
+    {% for example in examples %}
+    <tr>
+      <td><b>{{example.0}}</b></td>
+      <td><pre><code>{{example.1}}</code></pre></td>
+      <td>{{example.1|markdown}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

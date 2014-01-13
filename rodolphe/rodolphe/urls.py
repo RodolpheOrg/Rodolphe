@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^h/(?P<post_id>\d+)$', 'post.views.history'),
 
     url(r'^about$', 'post.views.about'),
+    url(r'^markdown$', 'post.views.markdown'),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-12 20:46+0100\n"
+"POT-Creation-Date: 2014-01-13 13:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: post/forms.py:7 post/forms.py:28
+#: post/forms.py:8 post/forms.py:30
 msgid "password"
 msgstr "Mot de passe"
 
-#: post/forms.py:21
+#: post/forms.py:23
 msgid "should put content or picture"
 msgstr "Vous devez au minimum saisir un texte ou insérer une image"
 
-#: post/forms.py:24 post/forms.py:36
+#: post/forms.py:26 post/forms.py:39
 msgid "passwords differ"
 msgstr ""
 "Le mot de passe est différent de celui entré lors de la rédaction du message"
@@ -37,6 +37,58 @@ msgstr "Texte"
 #: post/models.py:34
 msgid "picture"
 msgstr "Image"
+
+#: post/views.py:137 post/views.py:138
+msgid "emphasis"
+msgstr "Italique"
+
+#: post/views.py:139
+msgid "bold"
+msgstr "Gras"
+
+#: post/views.py:140
+msgid "underline"
+msgstr "Souligné"
+
+#: post/views.py:141
+msgid "strike"
+msgstr "Barré"
+
+#: post/views.py:142 post/views.py:143
+msgid "link"
+msgstr "Lien"
+
+#: post/views.py:144
+msgid "post reference"
+msgstr "Référence de message"
+
+#: post/views.py:145
+msgid "list"
+msgstr "List à puces"
+
+#: post/views.py:146
+msgid "ordered list"
+msgstr "List ordonnée"
+
+#: post/views.py:147 post/views.py:148
+msgid "title"
+msgstr "Titre"
+
+#: post/views.py:149
+msgid "quotation"
+msgstr "Citation"
+
+#: post/views.py:150
+msgid "code"
+msgstr "Code"
+
+#: post/views.py:151
+msgid "blockcode"
+msgstr "Bloc de code"
+
+#: post/views.py:152
+msgid "linebreak"
+msgstr "Ligne de séparation"
 
 #: templates/404.html:4 templates/about_en.html:4 templates/about_fr.html:4
 #: templates/base.html:19
@@ -107,6 +159,26 @@ msgstr "Liste des sujets"
 #: templates/index.html:8
 msgid "page"
 msgstr "Page"
+
+#: templates/markdown.html:5
+msgid "markdown"
+msgstr "Markdown"
+
+#: templates/markdown.html:8
+msgid "markdown tags"
+msgstr "Balises Markdown"
+
+#: templates/markdown.html:12
+msgid "tag name"
+msgstr "Nom de la balise"
+
+#: templates/markdown.html:13
+msgid "markdown tag"
+msgstr "Code Markdown"
+
+#: templates/markdown.html:14
+msgid "rendering"
+msgstr "Rendu"
 
 #: templates/new.html:5
 msgid "new thread"
