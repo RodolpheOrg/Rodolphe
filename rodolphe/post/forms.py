@@ -2,9 +2,11 @@ from django import forms
 from django.utils.translation import ugettext as _
 
 from post.models import Post
+from captcha.fields import CaptchaField
 
 class PostForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label=_('password'))
+    captcha = CaptchaField()
     class Meta:
         model = Post
         fields = ('content', 'picture')
@@ -26,6 +28,7 @@ class PostForm(forms.ModelForm):
 
 class DeletePostForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label=_('password'))
+    captcha = CaptchaField()
     class Meta:
         model = Post
         fields = ()

@@ -2,4 +2,6 @@ Django==1.6.1
 Markdown==2.3.1
 Pillow==2.3.0
 django-bootstrap3==2.5.5
+django-simple-captcha==0.4.1
 fake-factory==0.3.2
+six==1.5.2
