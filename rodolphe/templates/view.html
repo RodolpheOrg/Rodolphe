@@ -11,6 +11,9 @@
 
 {% if post.responses %}
 {% for resp in post.responses %}
+{% if forloop.last %}
+<a name="last"></a>
+{% endif %}
 {% ifequal resp.author post.author %}
 {% include 'post_content.html' with header=True post=resp editable=True %}
 {% else %}
