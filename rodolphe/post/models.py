@@ -49,7 +49,7 @@ class Post(models.Model):
 
     @property
     def responses(self):
-        return Post.objects.filter(active=True, parent=self)
+        return Post.objects.filter(active=True, parent=self).order_by('created_at')
 
     @property
     def thread(self):
