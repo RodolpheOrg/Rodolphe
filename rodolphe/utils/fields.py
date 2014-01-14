@@ -19,4 +19,8 @@ class UUIDField(models.BinaryField, metaclass=models.SubfieldBase):
         return UUID(bytes=bytes(value))
 
     def get_prep_value(self, value):
-        return super().get_prep_value(value.bytes)
+        if isinstance(value, UUID):
+            value = value.bytes
+        else:
+            value = bytes(value)
+        return super().get_prep_value(value)
