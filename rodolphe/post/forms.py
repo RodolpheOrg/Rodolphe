@@ -7,8 +7,10 @@ from captcha.fields import CaptchaField
 
 def check_password(form, password):
     if hasattr(form, 'instance') and form.instance.hash_id:
-        if form.instance.hash_id != Post.gen_password(form.instance.uuid,
-                                                      password):
+        h = form.instance.hash_id
+        if not isinstance(h, bytes):
+            h = bytes(h)
+        if h != Post.gen_password(form.instance.uuid, password):
             raise forms.ValidationError(_('passwords differ'))
 
 
