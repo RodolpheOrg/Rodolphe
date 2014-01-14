@@ -39,8 +39,8 @@
   </div>
   <div class="panel-body">
     {% if post.picture %}
-    <a href="{{MEDIA_URL}}{{post.picture}}">
-      <img class="img-thumbnail" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
+    <a href="{{post.picture.url}}">
+      <img class="img-thumbnail" src="{{post.thumbnail}}" />
     </a>
     {% endif %}
     {{post.content|markdown}}

@@ -9,6 +9,7 @@ from uuid import uuid4
 import hashlib
 import os.path
 from faker import Faker
+from PIL import Image
 
 faker = Faker(settings.LANGUAGE_CODE)
 
@@ -54,6 +55,21 @@ class Post(models.Model):
     @property
     def thread(self):
         return self.parent if self.parent else self
+
+    @property
+    def thumbnail(self):
+        if not self.picture:
+            return None
+        base, ext = os.path.splitext(self.picture.url)
+        thumb_url = '{}_thumb{}'.format(base, ext)
+        thumb_rel = os.path.normpath('./' + thumb_url)
+        if not os.path.exists(thumb_rel):
+            pic_rel = os.path.normpath('./' + self.picture.url)
+            print(pic_rel, thumb_rel)
+            image = Image.open(pic_rel)
+            image.thumbnail((300, 300), Image.ANTIALIAS)
+            image.save(thumb_rel)
+        return thumb_url
 
     @staticmethod
     def gen_password(uuid, key):
