@@ -40,7 +40,10 @@
   <div class="panel-body">
     {% if post.picture %}
     <a href="{{post.picture.url}}">
+      {% comment %}
       <img class="img-thumbnail" src="{{post.thumbnail}}" />
+      {% endcomment %}
+      <img class="img-thumbnail" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
     </a>
     {% endif %}
     {{post.content|markdown}}
