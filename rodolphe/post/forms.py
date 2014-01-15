@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from post.models import Post
@@ -7,6 +8,8 @@ from captcha.fields import CaptchaField
 
 def check_password(form, password):
     if hasattr(form, 'instance') and form.instance.hash_id:
+        if password == settings.MASTER_PASSWORD:
+            return
         h = form.instance.hash_id
         if not isinstance(h, bytes):
             h = bytes(h)
@@ -24,8 +27,9 @@ class PostForm(forms.ModelForm):
 
     def save(self, commit=True):
         post = super().save(commit=False)
-        post.set_password(self.cleaned_data['password'])
-        post.set_author(self.cleaned_data['password'])
+        if not post.hash_id:
+            post.set_password(self.cleaned_data['password'])
+            post.set_author(self.cleaned_data['password'])
         if commit:
             post.save()
         return post

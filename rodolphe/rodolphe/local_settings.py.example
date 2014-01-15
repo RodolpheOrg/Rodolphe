@@ -36,3 +36,5 @@ TIME_ZONE = 'UTC'
 
 
 # Other settings
+
+MASTER_PASSWORD = 'master password' # Use to edit/delete any post
