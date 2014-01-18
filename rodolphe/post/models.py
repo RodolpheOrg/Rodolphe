@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MaxLengthValidator
 from django.utils.translation import ugettext as _
 from django.utils import timezone
 
@@ -36,7 +37,9 @@ class Post(models.Model):
                                related_name='post_parent')
     old_post = models.ForeignKey('Post', blank=True, null=True,
                                  related_name='post_old')
-    content = models.TextField(blank=True, verbose_name=_('content'))
+    content = models.TextField(blank=True,
+                               validators=[MaxLengthValidator(5000)],
+                               verbose_name=_('content'))
     picture = models.ImageField(upload_to=get_upload_image_name, blank=True,
                                 verbose_name=_('picture'))
     hash_id = models.BinaryField(max_length=20)
