@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load bootstrap3 %}
+<html>
+  <head>
+    <title>{% block bootstrap3_title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if FAVICON %}
+    <link rel="icon" type="image/png" href="{{FAVICON}}" />
+    {% endif %}
+    {% bootstrap_css %}
+    <style>
+      blockquote p {
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    {% block bootstrap3_content %}{% endblock %}
+    {% bootstrap_javascript jquery=True %}
+  </body>
+</html>
