@@ -14,6 +14,7 @@
 <hr/>
 
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
+  <h3><a href="{% url 'post.views.markdown' %}">{% trans "markdown tags" %}</a></h3>
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
