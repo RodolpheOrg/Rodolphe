@@ -9,7 +9,7 @@
 <hr/>
 
 {% for post in page %}
-{% include 'post_content.html' with header=True threadinfos=True %}
+{% include 'post_content.html' with header=post.is_parent threadinfos=True %}
 <hr/>
 {% endfor %}
 

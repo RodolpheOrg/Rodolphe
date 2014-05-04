@@ -9,6 +9,7 @@ from utils.fields import UUIDField
 from uuid import uuid4
 import hashlib
 import os.path
+import re
 from faker import Faker
 #from PIL import Image
 
@@ -58,6 +59,15 @@ class Post(models.Model):
     @property
     def thread(self):
         return self.parent if self.parent else self
+
+    @property
+    def is_parent(self):
+        return False if self.parent else True
+
+    @property
+    def tags(self):
+        match = re.findall(r'(\A|\s)((\.|\?|!|~)(\w+))', self.content)
+        return [m[1] for m in match]
 
     #@property
     #def thumbnail(self):

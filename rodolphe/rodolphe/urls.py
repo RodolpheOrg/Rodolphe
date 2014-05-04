@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^del/(?P<post_id>\d+)$', 'post.views.delete'),
     url(r'^h/(?P<post_id>\d+)$', 'post.views.history'),
 
+    url(r'^tag/(?P<pattern>.+)$', 'post.views.tagsearch'),
+
     url(r'^about$', 'post.views.about'),
     url(r'^markdown$', 'post.views.markdown'),
 

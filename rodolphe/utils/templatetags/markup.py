@@ -47,10 +47,38 @@ class PostReferencesExtension(markdown.Extension):
 post_references = PostReferencesExtension()
 
 
+class DottagsPattern(markdown.inlinepatterns.Pattern):
+    labels = {
+        '.': 'label-primary',
+        '?': 'label-info',
+        '!': 'label-danger',
+        '~': 'label-success'
+    }
+
+    def handleMatch(self, m):
+        prev, dot, tag = m.group(1), m.group(2), m.group(3)
+        dottag = dot + tag
+        if prev and not prev[-1] in ' \t\n\r\f\v':
+            return dottag
+        a = markdown.util.etree.Element('a')
+        url = reverse('post.views.tagsearch', args=(dottag,))
+        a.set('href', '{}'.format(url))
+        a.set('class', 'label {}'.format(self.labels[dot]))
+        a.text = '{}'.format(tag)
+        return a
+
+
+class DottagsExtension(markdown.Extension):
+    def extendMarkdown(self, md, md_globals):
+        pattern = DottagsPattern(r'(\.|\?|!|~)(\w+)')
+        md.inlinePatterns.add('dottags', pattern, '_begin')
+dottags = DottagsExtension()
+
+
 @register.filter('markdown', is_safe=True)
 @stringfilter
 def do_markdown(value):
-    extensions = ('nl2br', disable_images, more_style, post_references)
+    extensions = ('nl2br', disable_images, more_style, post_references, dottags)
     return mark_safe(markdown.markdown(value,
                                        extensions,
                                        safe_mode='escape',

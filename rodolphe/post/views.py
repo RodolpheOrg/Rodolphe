@@ -137,6 +137,23 @@ def history(request, post_id):
     return render_to_response('history.html', context)
 
 
+def tagsearch(request, pattern):
+    paginator = Paginator(Post.objects.filter(active=True, content__contains=pattern)
+                          .order_by('-last_resp_at'), 10)
+    page_id = request.GET.get('page')
+    try:
+        posts = paginator.page(page_id)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    context = RequestContext(request, {
+        'page': posts,
+        'form': PostForm()
+    })
+    return render_to_response('index.html', context)
+
+
 def about(request):
     tpl_name = 'about_{}.html'.format(get_language().split('-')[0])
     return render_to_response(tpl_name, RequestContext(request))
@@ -152,6 +169,7 @@ def markdown(request):
         (_("link"), "<http://google.fr>"),
         (_("link"), "[google](http://google.fr)"),
         (_("post reference"), "&#1"),
+        (_("tags"), ".tag\n?info\n!danger\n~success"),
         (_("list"), "* a\n* b\n    * c\n* d"),
         (_("ordered list"), "1. a\n2. b"),
         (_("title"), "# Title1\n## Title 2\n### Title 3\n#### Title 4\n"
