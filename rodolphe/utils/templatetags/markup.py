@@ -49,28 +49,31 @@ post_references = PostReferencesExtension()
 
 class DottagsPattern(markdown.inlinepatterns.Pattern):
     labels = {
-        '.': 'label-primary',
         '?': 'label-info',
         '!': 'label-danger',
-        '~': 'label-success'
+        '+': 'label-success',
+        '~': 'label-warning'
     }
 
     def handleMatch(self, m):
-        prev, dot, tag = m.group(1), m.group(2), m.group(3)
-        dottag = dot + tag
+        prev, expr, tag, dot = m.group(1), m.group(2), m.group(3), m.group(4)
         if prev and not prev[-1] in ' \t\n\r\f\v':
-            return dottag
+            return expr
         a = markdown.util.etree.Element('a')
-        url = reverse('post.views.tagsearch', args=(dottag,))
+        url = reverse('post.views.tagsearch', args=(tag,))
         a.set('href', '{}'.format(url))
-        a.set('class', 'label {}'.format(self.labels[dot]))
+        if dot in self.labels:
+            label = self.labels[dot]
+        else:
+            label = 'label-primary'
+        a.set('class', 'label {}'.format(label))
         a.text = '{}'.format(tag)
         return a
 
 
 class DottagsExtension(markdown.Extension):
     def extendMarkdown(self, md, md_globals):
-        pattern = DottagsPattern(r'(\.|\?|!|~)(\w+)')
+        pattern = DottagsPattern(r'(\.(\w+)(\?|!|\+|~)?)')
         md.inlinePatterns.add('dottags', pattern, '_begin')
 dottags = DottagsExtension()
 

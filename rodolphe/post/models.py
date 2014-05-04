@@ -82,7 +82,7 @@ class Post(models.Model):
 
     @property
     def tags(self):
-        match = re.findall(r'(\A|\s)((\.|\?|!|~)(\w+))', self.content)
+        match = re.findall(r'(\A|\s)\.(\w+)', self.content)
         return [m[1] for m in match]
 
     #@property

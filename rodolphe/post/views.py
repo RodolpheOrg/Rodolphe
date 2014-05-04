@@ -138,7 +138,8 @@ def history(request, post_id):
 
 
 def tagsearch(request, pattern):
-    paginator = Paginator(Post.objects.filter(active=True, content__contains=pattern)
+    paginator = Paginator(Post.objects.filter(active=True,
+                                              content__contains='.{}'.format(pattern))
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
     try:
@@ -169,7 +170,7 @@ def markdown(request):
         (_("link"), "<http://google.fr>"),
         (_("link"), "[google](http://google.fr)"),
         (_("post reference"), "&#1"),
-        (_("tags"), ".tag\n?info\n!danger\n~success"),
+        (_("tags"), ".tag\n.info?\n.danger!\n.success+\n.warning~"),
         (_("list"), "* a\n* b\n    * c\n* d"),
         (_("ordered list"), "1. a\n2. b"),
         (_("title"), "# Title1\n## Title 2\n### Title 3\n#### Title 4\n"
