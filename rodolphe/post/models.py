@@ -46,6 +46,9 @@ class Tag(models.Model):
         tag.save()
         return tag
 
+    def __str__(self):
+        return '.{}({})'.format(self.name, self.count)
+
 
 class Post(models.Model):
     uuid = UUIDField()
