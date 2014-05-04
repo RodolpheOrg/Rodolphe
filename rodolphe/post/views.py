@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response, redirect, get_object_or_404
+from django.db.models import Q
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,6 +10,7 @@ from django.utils.translation import ugettext as _
 from post.models import Post
 from post.forms import PostForm, DeletePostForm
 
+import re
 import json
 
 # Create your views here.
@@ -138,8 +140,15 @@ def history(request, post_id):
 
 
 def tagsearch(request, pattern):
-    paginator = Paginator(Post.objects.filter(active=True,
-                                              content__contains='.{}'.format(pattern))
+    tag = '.{}'.format(pattern)
+    spaces = ' \t\n\r\f\v'
+    q = Q(content=tag)
+    for space in spaces:
+        q |= Q(content__startswith=tag + space)
+        q |= Q(content__endswith=space + tag)
+        for space2 in spaces:
+            q |= Q(content__contains=space + tag + space2)
+    paginator = Paginator(Post.objects.filter(q, active=True)
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
     try:
