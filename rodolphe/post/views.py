@@ -140,14 +140,16 @@ def history(request, post_id):
 
 
 def tagsearch(request, pattern):
-    tag = '.{}'.format(pattern)
-    spaces = ' \t\n\r\f\v'
-    q = Q(content=tag)
-    for space in spaces:
-        q |= Q(content__startswith=tag + space)
-        q |= Q(content__endswith=space + tag)
-        for space2 in spaces:
-            q |= Q(content__contains=space + tag + space2)
+    #tag = '.{}'.format(pattern)
+    #spaces = ' \t\n\r\f\v'
+    #q = Q(content=tag)
+    #for space in spaces:
+    #    q |= Q(content__startswith=tag + space)
+    #    q |= Q(content__endswith=space + tag)
+    #    for space2 in spaces:
+    #        q |= Q(content__contains=space + tag + space2)
+    #tag = re.escape('.{}'.format(pattern))
+    q = Q(content__regex=r'(\s|\A)\.{}(\W|\Z)'.format(pattern))
     paginator = Paginator(Post.objects.filter(q, active=True)
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
