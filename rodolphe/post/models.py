@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.validators import MaxLengthValidator
 from django.utils.translation import ugettext as _
 from django.utils import timezone
+from django.core.exceptions import ObjectDoesNotExist
 
 from utils.fields import UUIDField
 
@@ -29,6 +30,21 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+    count = models.IntegerField(default=1)
+
+    @classmethod
+    def register(cls, name):
+        try:
+            tag = cls.objects.get(name=name)
+            tag.count += 1
+        except ObjectDoesNotExist:
+            tag = Tag(name=name)
+        tag.save()
+        return tag
 
 
 class Post(models.Model):
