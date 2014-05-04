@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 13:47+0100\n"
+"POT-Creation-Date: 2014-05-04 18:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,76 +17,80 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: post/forms.py:8 post/forms.py:30
-msgid "password"
-msgstr "Mot de passe"
-
-#: post/forms.py:23
-msgid "should put content or picture"
-msgstr "Vous devez au minimum saisir un texte ou insérer une image"
-
-#: post/forms.py:26 post/forms.py:39
+#: post/forms.py:17
 msgid "passwords differ"
 msgstr ""
 "Le mot de passe est différent de celui entré lors de la rédaction du message"
 
-#: post/models.py:33
+#: post/forms.py:21 post/forms.py:49
+msgid "password"
+msgstr "Mot de passe"
+
+#: post/forms.py:43
+msgid "should put content or picture"
+msgstr "Vous devez au minimum saisir un texte ou insérer une image"
+
+#: post/models.py:62
 msgid "content"
 msgstr "Texte"
 
-#: post/models.py:34
+#: post/models.py:64
 msgid "picture"
 msgstr "Image"
 
-#: post/views.py:137 post/views.py:138
+#: post/views.py:165 post/views.py:166
 msgid "emphasis"
 msgstr "Italique"
 
-#: post/views.py:139
+#: post/views.py:167
 msgid "bold"
 msgstr "Gras"
 
-#: post/views.py:140
+#: post/views.py:168
 msgid "underline"
 msgstr "Souligné"
 
-#: post/views.py:141
+#: post/views.py:169
 msgid "strike"
 msgstr "Barré"
 
-#: post/views.py:142 post/views.py:143
+#: post/views.py:170 post/views.py:171
 msgid "link"
 msgstr "Lien"
 
-#: post/views.py:144
+#: post/views.py:172
 msgid "post reference"
 msgstr "Référence de message"
 
-#: post/views.py:145
+#: post/views.py:173
+msgid "tags"
+msgstr "Tags"
+
+#: post/views.py:174
 msgid "list"
-msgstr "List à puces"
+msgstr "Liste à puces"
 
-#: post/views.py:146
+#: post/views.py:175
 msgid "ordered list"
-msgstr "List ordonnée"
+msgstr "Liste ordonnée"
 
-#: post/views.py:147 post/views.py:148
+#: post/views.py:176 post/views.py:178
 msgid "title"
 msgstr "Titre"
 
-#: post/views.py:149
+#: post/views.py:179
 msgid "quotation"
 msgstr "Citation"
 
-#: post/views.py:150
+#: post/views.py:180
 msgid "code"
 msgstr "Code"
 
-#: post/views.py:151
+#: post/views.py:181
 msgid "blockcode"
 msgstr "Bloc de code"
 
-#: post/views.py:152
+#: post/views.py:182
 msgid "linebreak"
 msgstr "Ligne de séparation"
 
@@ -112,7 +116,7 @@ msgstr "Participer"
 msgid "home"
 msgstr "Accueil"
 
-#: templates/base.html:41
+#: templates/base.html:36
 msgid "wrote"
 msgstr "a écrit"
 
@@ -128,7 +132,7 @@ msgstr "Retour"
 msgid "deleting post"
 msgstr "Suppression Message"
 
-#: templates/delete.html:20 templates/post_content.html:20
+#: templates/delete.html:20 templates/post_content.html:19
 msgid "delete"
 msgstr "Supprimer"
 
@@ -140,7 +144,12 @@ msgstr "Édition d'un message"
 msgid "editing post"
 msgstr "Édition Message"
 
-#: templates/edit.html:20 templates/post_content.html:17
+#: templates/edit.html:17 templates/markdown.html:8 templates/new.html:11
+#: templates/view.html:30
+msgid "markdown tags"
+msgstr "Balises Markdown"
+
+#: templates/edit.html:21 templates/post_content.html:16
 msgid "edit"
 msgstr "Éditer"
 
@@ -164,10 +173,6 @@ msgstr "Page"
 msgid "markdown"
 msgstr "Markdown"
 
-#: templates/markdown.html:8
-msgid "markdown tags"
-msgstr "Balises Markdown"
-
 #: templates/markdown.html:12
 msgid "tag name"
 msgstr "Nom de la balise"
@@ -188,45 +193,53 @@ msgstr "Nouveau Sujet"
 msgid "creating new thread"
 msgstr "Création d'un nouveau sujet"
 
-#: templates/new.html:14
+#: templates/new.html:15
 msgid "create"
 msgstr "Envoyer"
 
-#: templates/post_content.html:9
+#: templates/popular_tags.html:4
+msgid "popular tags"
+msgstr "Tags populaires"
+
+#: templates/post_content.html:8
 msgid "quote"
 msgstr "Citer"
 
-#: templates/post_content.html:13
+#: templates/post_content.html:12
 msgid "history"
 msgstr "Historique"
 
-#: templates/post_content.html:29
+#: templates/post_content.html:28
 msgid "by_author"
 msgstr "par"
 
-#: templates/post_content.html:30 templates/post_content.html.py:35
-#: templates/post_content.html:55
+#: templates/post_content.html:29 templates/post_content.html.py:34
+#: templates/post_content.html:59
 msgid "the_date"
 msgstr "le"
 
-#: templates/post_content.html:31 templates/post_content.html.py:36
-#: templates/post_content.html:56
+#: templates/post_content.html:30 templates/post_content.html.py:35
+#: templates/post_content.html:60
 msgid "at_time"
 msgstr "à"
 
-#: templates/post_content.html:34
+#: templates/post_content.html:33
 msgid "edited"
 msgstr "modifié"
 
-#: templates/post_content.html:51
+#: templates/post_content.html:55
 msgid "response"
 msgstr "réponse"
 
-#: templates/post_content.html:54
+#: templates/post_content.html:58
 msgid "last response"
 msgstr "dernière réponse"
 
-#: templates/post_content.html:59
+#: templates/post_content.html:64
+msgid "response to"
+msgstr "Réponse à"
+
+#: templates/post_content.html:66
 msgid "read thread"
 msgstr "Lire la discussion"
 
@@ -234,10 +247,10 @@ msgstr "Lire la discussion"
 msgid "reading thread"
 msgstr "Lecture d'un sujet"
 
-#: templates/view.html:24
+#: templates/view.html:28
 msgid "reply to thread"
 msgstr "Répondre au sujet"
 
-#: templates/view.html:29
+#: templates/view.html:34
 msgid "reply"
 msgstr "Répondre"
