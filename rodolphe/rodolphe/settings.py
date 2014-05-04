@@ -54,6 +54,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     'utils.context_processors.site_name',
     'utils.context_processors.favicon',
+    'utils.context_processors.popular_tags',
 )
 
 ROOT_URLCONF = 'rodolphe.urls'
