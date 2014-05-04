@@ -11,5 +11,8 @@ def favicon(request):
     return {'FAVICON': getattr(settings, 'FAVICON', None)}
 
 
-def popular_tags(request):
-    return {'popular_tags': Tag.objects.order_by('-count')[:10]}
+def tags(request):
+    return {
+        'popular_tags': Tag.objects.order_by('-count')[:10],
+        'recent_tags': Tag.objects.order_by('-id')[:10]
+    }

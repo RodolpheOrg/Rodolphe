@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-04 18:05+0200\n"
+"POT-Creation-Date: 2014-05-04 19:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,10 +196,6 @@ msgstr "Create a new thread"
 msgid "create"
 msgstr "Create"
 
-#: templates/popular_tags.html:4
-msgid "popular tags"
-msgstr "Popular tags"
-
 #: templates/post_content.html:8
 msgid "quote"
 msgstr "Quote"
@@ -241,6 +237,14 @@ msgstr "Answer to"
 #: templates/post_content.html:66
 msgid "read thread"
 msgstr "Read the thread"
+
+#: templates/tags.html:5
+msgid "popular tags"
+msgstr "Popular tags"
+
+#: templates/tags.html:12
+msgid "recent tags"
+msgstr "Recent tags"
 
 #: templates/view.html:5
 msgid "reading thread"

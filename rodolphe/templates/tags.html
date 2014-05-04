@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<p>
+  {% if popular_tags %}
+  {% trans "popular tags" %}:
+  {% for tag in popular_tags %}
+  <a href="{% url 'post.views.tagsearch' tag.name %}" class="label label-default">{{tag.name}}</a>
+  {% endfor %}
+  {% endif %}
+  <br/>
+  {% if recent_tags %}
+  {% trans "recent tags" %}:
+  {% for tag in recent_tags %}
+  <a href="{% url 'post.views.tagsearch' tag.name %}" class="label label-default">{{tag.name}}</a>
+  {% endfor %}
+  {% endif %}
+</p>
