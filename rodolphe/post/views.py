@@ -143,7 +143,7 @@ def history(request, post_id):
 def taglist(request):
     indexed_tags = defaultdict(list)
     for tag in Tag.objects.all():
-        first_letter = tag.name[0]
+        first_letter = tag.name[0].upper()
         indexed_tags[first_letter].append(tag.name)
     sorted_tags = []
     for letter, tags in sorted(indexed_tags.items()):

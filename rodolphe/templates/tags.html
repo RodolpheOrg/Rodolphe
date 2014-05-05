@@ -8,7 +8,7 @@
 <h2>{% trans "tags" %}</h2>
 
 {% for letter, tags in indexed_tags %}
-<h3>{{letter|upper}}</h3>
+<h3>{{letter}}</h3>
 <p>
   {% for tag in tags %}
   {% include 'tag.html' %}
