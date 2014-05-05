@@ -7,11 +7,12 @@ from django.utils.translation import get_language
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from post.models import Post
+from post.models import Post, Tag
 from post.forms import PostForm, DeletePostForm
 
 import re
 import json
+from collections import defaultdict
 
 # Create your views here.
 
@@ -137,6 +138,20 @@ def history(request, post_id):
         'hist': hist
     })
     return render_to_response('history.html', context)
+
+
+def taglist(request):
+    indexed_tags = defaultdict(list)
+    for tag in Tag.objects.all():
+        first_letter = tag.name[0]
+        indexed_tags[first_letter].append(tag.name)
+    sorted_tags = []
+    for letter, tags in sorted(indexed_tags.items()):
+        sorted_tags.append((letter, sorted(tags)))
+    context = RequestContext(request, {
+        'indexed_tags': sorted_tags
+    })
+    return render_to_response('tags.html', context)
 
 
 def tagsearch(request, pattern):
