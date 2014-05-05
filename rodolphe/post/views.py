@@ -141,7 +141,7 @@ def history(request, post_id):
 
 def tagsearch(request, pattern):
     tag = re.escape('.{}'.format(pattern))
-    q = Q(content__regex=r'(\s|\A){}(\W|\Z)'.format(tag))
+    q = Q(content__iregex=r'(\s|\A){}(\W|\Z)'.format(tag))
     paginator = Paginator(Post.objects.filter(q, active=True)
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')

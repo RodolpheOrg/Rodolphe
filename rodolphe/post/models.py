@@ -33,11 +33,12 @@ class Author(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     count = models.IntegerField(default=1)
 
     @classmethod
     def register(cls, name):
+        name = name.lower()
         try:
             tag = cls.objects.get(name=name)
             tag.count += 1
