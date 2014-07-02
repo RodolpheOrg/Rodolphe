@@ -21,13 +21,10 @@
       <li>
 	<form action="{% url 'post.views.search' %}" method="get" class="navbar-form" role="search">
 	  <div class="form-group">
-	    <div class="input-group">
-	      <input type="text" name="q" class="form-control" placeholder="{% trans 'search' %}"
-		     value="{% if query %}{{query}}{% endif %}" />
-	      <span class="input-group-btn">
-		<input type="submit" value="Go !"  class="btn btn-default"/>
-	      </span>
-	    </div>
+	    <input type="text" name="q" class="form-control" placeholder="{% trans 'search' %}"
+		   value="{% if query %}{{query}}{% endif %}" />
+	  </div>
+	  <button type="submit" class="btn btn-default">{% bootstrap_icon "search" %}</button>
 	  </div>
 	</form>
       </li>
