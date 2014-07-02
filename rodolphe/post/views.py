@@ -176,8 +176,7 @@ def tagsearch(request, pattern):
 
 def search(request):
     pattern = request.GET.get('q', '')
-    r = re.escape('{}'.format(pattern))
-    q = Q(content__iregex=r'(\s|\A){}(\W|\Z)'.format(r))
+    q = Q(content__icontains=pattern)
     paginator = Paginator(Post.objects.filter(q, active=True)
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
