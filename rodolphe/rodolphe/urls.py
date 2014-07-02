@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 
     url(r'^tags$', 'post.views.taglist'),
     url(r'^tag/(?P<pattern>\w+)$', 'post.views.tagsearch'),
+    url(r'^search$', 'post.views.search'),
 
     url(r'^about$', 'post.views.about'),
     url(r'^markdown$', 'post.views.markdown'),

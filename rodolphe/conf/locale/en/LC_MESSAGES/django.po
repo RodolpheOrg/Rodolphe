@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-04 19:25+0200\n"
+"POT-Creation-Date: 2014-07-02 13:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,67 +29,68 @@ msgstr "Password"
 msgid "should put content or picture"
 msgstr "You should put a text or a picture"
 
-#: post/models.py:62
+#: post/models.py:63
 msgid "content"
 msgstr "Content"
 
-#: post/models.py:64
+#: post/models.py:65
 msgid "picture"
 msgstr "Picture"
 
-#: post/views.py:165 post/views.py:166
+#: post/views.py:203 post/views.py:204
 msgid "emphasis"
 msgstr "Emphasis"
 
-#: post/views.py:167
+#: post/views.py:205
 msgid "bold"
 msgstr "Bold"
 
-#: post/views.py:168
+#: post/views.py:206
 msgid "underline"
 msgstr "Underlined"
 
-#: post/views.py:169
+#: post/views.py:207
 msgid "strike"
 msgstr "Striked"
 
-#: post/views.py:170 post/views.py:171
+#: post/views.py:208 post/views.py:209
 msgid "link"
 msgstr "Link"
 
-#: post/views.py:172
+#: post/views.py:210
 msgid "post reference"
 msgstr "Post reference"
 
-#: post/views.py:173
+#: post/views.py:211 templates/base.html:20 templates/tags.html:5
+#: templates/tags.html.py:8
 msgid "tags"
 msgstr "Tags"
 
-#: post/views.py:174
+#: post/views.py:212
 msgid "list"
 msgstr "List"
 
-#: post/views.py:175
+#: post/views.py:213
 msgid "ordered list"
 msgstr "Ordered list"
 
-#: post/views.py:176 post/views.py:178
+#: post/views.py:214 post/views.py:216
 msgid "title"
 msgstr "Title"
 
-#: post/views.py:179
+#: post/views.py:217
 msgid "quotation"
 msgstr "Quotation"
 
-#: post/views.py:180
+#: post/views.py:218
 msgid "code"
 msgstr "Code"
 
-#: post/views.py:181
+#: post/views.py:219
 msgid "blockcode"
 msgstr "Block of code"
 
-#: post/views.py:182
+#: post/views.py:220
 msgid "linebreak"
 msgstr "Line break"
 
@@ -115,7 +116,11 @@ msgstr "Participate"
 msgid "home"
 msgstr "Home"
 
-#: templates/base.html:36
+#: templates/base.html:25
+msgid "search"
+msgstr "Search"
+
+#: templates/base.html:49
 msgid "wrote"
 msgstr "wrote"
 
@@ -238,11 +243,11 @@ msgstr "Answer to"
 msgid "read thread"
 msgstr "Read the thread"
 
-#: templates/tags.html:5
+#: templates/tags_widget.html:5
 msgid "popular tags"
 msgstr "Popular tags"
 
-#: templates/tags.html:12
+#: templates/tags_widget.html:12
 msgid "recent tags"
 msgstr "Recent tags"
 
