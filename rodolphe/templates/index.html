@@ -20,5 +20,9 @@
 <hr/>
 {% endfor %}
 
+{% if query %}
+{% bootstrap_pagination page extra="q="|add:query %}
+{% else %}
 {% bootstrap_pagination page %}
+{% endif %}
 {% endblock %}
