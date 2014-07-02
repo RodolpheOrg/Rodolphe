@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 13:32+0200\n"
+"POT-Creation-Date: 2014-07-02 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,60 +37,68 @@ msgstr "Content"
 msgid "picture"
 msgstr "Picture"
 
-#: post/views.py:203 post/views.py:204
+#: post/views.py:172
+msgid "tag"
+msgstr "Tag"
+
+#: post/views.py:193 templates/base.html:25
+msgid "search"
+msgstr "Search"
+
+#: post/views.py:205 post/views.py:206
 msgid "emphasis"
 msgstr "Emphasis"
 
-#: post/views.py:205
+#: post/views.py:207
 msgid "bold"
 msgstr "Bold"
 
-#: post/views.py:206
+#: post/views.py:208
 msgid "underline"
 msgstr "Underlined"
 
-#: post/views.py:207
+#: post/views.py:209
 msgid "strike"
 msgstr "Striked"
 
-#: post/views.py:208 post/views.py:209
+#: post/views.py:210 post/views.py:211
 msgid "link"
 msgstr "Link"
 
-#: post/views.py:210
+#: post/views.py:212
 msgid "post reference"
 msgstr "Post reference"
 
-#: post/views.py:211 templates/base.html:20 templates/tags.html:5
+#: post/views.py:213 templates/base.html:20 templates/tags.html:5
 #: templates/tags.html.py:8
 msgid "tags"
 msgstr "Tags"
 
-#: post/views.py:212
+#: post/views.py:214
 msgid "list"
 msgstr "List"
 
-#: post/views.py:213
+#: post/views.py:215
 msgid "ordered list"
 msgstr "Ordered list"
 
-#: post/views.py:214 post/views.py:216
+#: post/views.py:216 post/views.py:218
 msgid "title"
 msgstr "Title"
 
-#: post/views.py:217
+#: post/views.py:219
 msgid "quotation"
 msgstr "Quotation"
 
-#: post/views.py:218
+#: post/views.py:220
 msgid "code"
 msgstr "Code"
 
-#: post/views.py:219
+#: post/views.py:221
 msgid "blockcode"
 msgstr "Block of code"
 
-#: post/views.py:220
+#: post/views.py:222
 msgid "linebreak"
 msgstr "Line break"
 
@@ -112,13 +120,9 @@ msgstr "The page you were looking for could not be found."
 msgid "participate"
 msgstr "Participate"
 
-#: templates/base.html:17 templates/index.html:5
+#: templates/base.html:17 templates/index.html:9
 msgid "home"
 msgstr "Home"
-
-#: templates/base.html:25
-msgid "search"
-msgstr "Search"
 
 #: templates/base.html:49
 msgid "wrote"
@@ -165,11 +169,11 @@ msgstr "History of a post"
 msgid "history of"
 msgstr "History of"
 
-#: templates/index.html:8
+#: templates/index.html:14
 msgid "list of threads"
 msgstr "List of threads"
 
-#: templates/index.html:8
+#: templates/index.html:14
 msgid "page"
 msgstr "Page"
 

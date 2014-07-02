@@ -168,7 +168,8 @@ def tagsearch(request, pattern):
         posts = paginator.page(paginator.num_pages)
     context = RequestContext(request, {
         'page': posts,
-        'form': PostForm()
+        'form': PostForm(),
+        'title': '{} - {}'.format(_('tag'), pattern)
     })
     return render_to_response('index.html', context)
 
@@ -188,7 +189,9 @@ def search(request):
         posts = paginator.page(paginator.num_pages)
     context = RequestContext(request, {
         'page': posts,
-        'form': PostForm()
+        'form': PostForm(),
+        'title': _('search'),
+        'query': pattern
     })
     return render_to_response('index.html', context)
 
