@@ -7,7 +7,7 @@
 <h2>Presentation</h2>
 <p>
   <strong>{{SITE_NAME}}</strong> is an anonymous platform of content sharing, pictures or simple texts.<br/>
-  The website does not require any account to participate. You can indeed create a new thread via <a href="{% url 'post.views.new' %}">{% trans "participate" %}</a>, or reply to any discussion.
+  The website does not require any account to participate. You can indeed create a new thread via <a href="{% url 'main.views.thread.new' %}">{% trans "participate" %}</a>, or reply to any discussion.
 </p>
 
 <h2>Participate</h2>
@@ -16,7 +16,7 @@
   Not needing any account, the website will ask you a password each time you write a message: this password let you edit or delete the post later.
 
   <h3>Markdown</h3>
-  You can use Markdown syntax when redacting messages, you can see <a href="{% url 'post.views.markdown' %}">here</a> the list of available tags.
+  You can use Markdown syntax when redacting messages, you can see <a href="{% url 'main.views.about.markdown' %}">here</a> the list of available tags.
 </p>
 
 <h2>Anonymity</h2>

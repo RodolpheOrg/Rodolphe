@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from post.models import Tag
+from main.models import Tag
 
 
 def site_name(request):

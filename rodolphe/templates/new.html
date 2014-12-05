@@ -7,8 +7,8 @@
 {% block content %}
 <h2>{% trans "creating new thread" %}</h2>
 <hr/>
-<form action="{% url 'post.views.new' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-  <h3><a href="{% url 'post.views.markdown' %}">{% trans "markdown tags" %}</a></h3>
+<form action="{% url 'main.views.thread.new' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+  <h3><a href="{% url 'main.views.about.markdown' %}">{% trans "markdown tags" %}</a></h3>
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">

@@ -7,20 +7,23 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'post.views.page'),
-    url(r'^view/(?P<post_id>\d+)$', 'post.views.view'),
-    url(r'^raw/(?P<post_id>\d+)$', 'post.views.raw'),
-    url(r'^new$', 'post.views.new'),
-    url(r'^edit/(?P<post_id>\d+)$', 'post.views.edit'),
-    url(r'^del/(?P<post_id>\d+)$', 'post.views.delete'),
-    url(r'^h/(?P<post_id>\d+)$', 'post.views.history'),
+    url(r'^$', 'main.views.paging.page'),
 
-    url(r'^tags$', 'post.views.taglist'),
-    url(r'^tag/(?P<pattern>\w+)$', 'post.views.tagsearch'),
-    url(r'^search$', 'post.views.search'),
+    url(r'^view/(?P<post_id>\d+)$', 'main.views.thread.view'),
+    url(r'^new$', 'main.views.thread.new'),
 
-    url(r'^about$', 'post.views.about'),
-    url(r'^markdown$', 'post.views.markdown'),
+    url(r'^raw/(?P<post_id>\d+)$', 'main.views.post.raw'),
+    url(r'^edit/(?P<post_id>\d+)$', 'main.views.post.edit'),
+    url(r'^del/(?P<post_id>\d+)$', 'main.views.post.delete'),
+    url(r'^h/(?P<post_id>\d+)$', 'main.views.post.history'),
+
+    url(r'^tags$', 'main.views.tag.index'),
+    url(r'^tag/(?P<pattern>\w+)$', 'main.views.tag.search'),
+
+    url(r'^search$', 'main.views.search.search'),
+
+    url(r'^about$', 'main.views.about.about'),
+    url(r'^markdown$', 'main.views.about.markdown'),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),

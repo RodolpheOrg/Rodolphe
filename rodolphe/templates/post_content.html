@@ -5,24 +5,24 @@
   <div class="panel-heading">
     {% if editable %}
     <div class="btn-group pull-right">
-      <a href="#reply" onclick="quote_post('{% url 'post.views.raw' post.id %}');" title="{% trans 'quote' %}" class="btn btn-success btn-xs">
+      <a href="#reply" onclick="quote_post('{% url 'main.views.post.raw' post.id %}');" title="{% trans 'quote' %}" class="btn btn-success btn-xs">
 	{% bootstrap_icon "comment" %}
       </a>
       {% if post.old_post %}
-      <a href="{%url 'post.views.history' post.id %}" title="{% trans 'history' %}" class="btn btn-info btn-xs">
+      <a href="{%url 'main.views.post.history' post.id %}" title="{% trans 'history' %}" class="btn btn-info btn-xs">
 	{% bootstrap_icon "time" %}
       </a>
       {% endif %}
-      <a href="{%url 'post.views.edit' post.id %}" title="{% trans 'edit' %}" class="btn btn-warning btn-xs">
+      <a href="{%url 'main.views.post.edit' post.id %}" title="{% trans 'edit' %}" class="btn btn-warning btn-xs">
 	{% bootstrap_icon "edit" %}
       </a>
-      <a href="{%url 'post.views.delete' post.id %}" title="{% trans 'delete' %}" class="btn btn-danger btn-xs">
+      <a href="{%url 'main.views.post.delete' post.id %}" title="{% trans 'delete' %}" class="btn btn-danger btn-xs">
 	{% bootstrap_icon "remove" %}
       </a>
     </div>
     {% endif %}
     
-    <a href="{% url 'post.views.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}">
+    <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}">
       {% bootstrap_icon "link" %} <b>{{post}}</b>
     </a>
     {% trans "by_author" %} <b>{{post.author}}</b>
@@ -53,16 +53,16 @@
       {% if post.is_parent %}
       <b>{{post.responses|length}} {% trans "response" %}{{post.responses|pluralize}}</b>
       {% if post.responses %}
-      <small><a href="{% url 'post.views.view' post.id %}#last">
+      <small><a href="{% url 'main.views.thread.view' post.id %}#last">
 	&nbsp;({% trans "last response" %}
 	{% trans "the_date" %} <i>{{ post.last_resp_at|date:"DATE_FORMAT" }}</i>
 	{% trans "at_time" %} <i>{{ post.last_resp_at|time:"TIME_FORMAT" }}</i>)
       </a></small>
       {% endif %}
       {% else %}
-      <b>{% trans "response to" %} <a href="{% url 'post.views.view' post.thread.id %}">#{{post.thread.id}}</a></b>
+      <b>{% trans "response to" %} <a href="{% url 'main.views.thread.view' post.thread.id %}">#{{post.thread.id}}</a></b>
       {% endif %}
-      <a href="{% url 'post.views.view' post.thread.id %}#p{{post.id}}" class="btn btn-default pull-right">{% trans "read thread" %}</a>
+      <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" class="btn btn-default pull-right">{% trans "read thread" %}</a>
     </p>
     {% endif %}
   </div>

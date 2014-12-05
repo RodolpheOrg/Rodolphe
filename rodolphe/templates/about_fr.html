@@ -7,7 +7,7 @@
 <h2>Présentation</h2>
 <p>
   <strong>{{SITE_NAME}}</strong> est une plate-forme anonyme de partage de contenus, images ou simples textes.<br/>
-  Le site ne requiert pas de cŕeation de compte pour participer. Il suffit en effet de créer un nouveau sujet via la page <a href="{% url 'post.views.new' %}">{% trans "participate" %}</a>, ou de répondre à une quelconque discussion.
+  Le site ne requiert pas de cŕeation de compte pour participer. Il suffit en effet de créer un nouveau sujet via la page <a href="{% url 'main.views.thread.new' %}">{% trans "participate" %}</a>, ou de répondre à une quelconque discussion.
 </p>
 
 <h2>Participer</h2>
@@ -16,7 +16,7 @@
   Ne nécessitant pas de compte utilisateur, le site vous demandera pour chaque message d'entrer un mot de passe: celui-ci servira à pouvoir par la suite éditer ce message ou le supprimer.
 
   <h3>Markdown</h3>
-  Vous pouvez utiliser la syntaxe Markdown lors de la rédaction de vos messages. Vous trouvez <a href="{% url 'post.views.markdown' %}">ici</a> la liste des balises disponibles.
+  Vous pouvez utiliser la syntaxe Markdown lors de la rédaction de vos messages. Vous trouvez <a href="{% url 'main.views.about.markdown' %}">ici</a> la liste des balises disponibles.
 </p>
 
 <h2>Anonymat</h2>
