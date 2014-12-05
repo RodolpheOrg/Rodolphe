@@ -42,4 +42,4 @@ TIME_ZONE = 'UTC'
 
 # Other settings
 
-MASTER_PASSWORD = 'master password' # Use to edit/delete any post
+MASTER_PASSWORDS = ['master password'] # Use to edit/delete any post

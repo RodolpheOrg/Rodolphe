@@ -8,7 +8,7 @@ from captcha.fields import CaptchaField
 
 def check_password(form, password):
     if hasattr(form, 'instance') and form.instance.hash_id:
-        if password == settings.MASTER_PASSWORD:
+        if password in settings.MASTER_PASSWORDS:
             return
         h = form.instance.hash_id
         if not isinstance(h, bytes):
