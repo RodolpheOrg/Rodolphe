@@ -14,8 +14,6 @@ import re
 import json
 from collections import defaultdict
 
-# Create your views here.
-
 
 def page(request):
     paginator = Paginator(Post.objects.filter(active=True, parent=None)

@@ -12,11 +12,8 @@ import hashlib
 import os.path
 import re
 from faker import Faker
-#from PIL import Image
 
 faker = Faker(settings.LANGUAGE_CODE)
-
-# Create your models here.
 
 
 def get_upload_image_name(_, filename):
@@ -88,21 +85,6 @@ class Post(models.Model):
     def tags(self):
         match = re.findall(r'(\A|\s)\.(\w+)', self.content)
         return [m[1] for m in match]
-
-    #@property
-    #def thumbnail(self):
-    #    if not self.picture:
-    #        return None
-    #    base, ext = os.path.splitext(self.picture.url)
-    #    thumb_url = '{}_thumb{}'.format(base, ext)
-    #    thumb_rel = os.path.normpath('./' + thumb_url)
-    #    if not os.path.exists(thumb_rel):
-    #        pic_rel = os.path.normpath('./' + self.picture.url)
-    #        print(pic_rel, thumb_rel)
-    #        image = Image.open(pic_rel)
-    #        image.thumbnail((300, 300), Image.ANTIALIAS)
-    #        image.save(thumb_rel)
-    #    return thumb_url
 
     @staticmethod
     def gen_password(uuid, key):
