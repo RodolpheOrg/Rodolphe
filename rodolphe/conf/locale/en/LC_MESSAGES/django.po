@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 13:39+0200\n"
+"POT-Creation-Date: 2014-12-02 16:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,90 +17,90 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: post/forms.py:17
+#: main/forms.py:17
 msgid "passwords differ"
 msgstr "You should enter the password you put when you created the post"
 
-#: post/forms.py:21 post/forms.py:49
+#: main/forms.py:21 main/forms.py:49
 msgid "password"
 msgstr "Password"
 
-#: post/forms.py:43
+#: main/forms.py:43
 msgid "should put content or picture"
 msgstr "You should put a text or a picture"
 
-#: post/models.py:63
+#: main/models.py:60
 msgid "content"
 msgstr "Content"
 
-#: post/models.py:65
+#: main/models.py:62
 msgid "picture"
 msgstr "Picture"
 
-#: post/views.py:172
-msgid "tag"
-msgstr "Tag"
-
-#: post/views.py:193 templates/base.html:25
-msgid "search"
-msgstr "Search"
-
-#: post/views.py:205 post/views.py:206
+#: main/views/about.py:14 main/views/about.py:15
 msgid "emphasis"
 msgstr "Emphasis"
 
-#: post/views.py:207
+#: main/views/about.py:16
 msgid "bold"
 msgstr "Bold"
 
-#: post/views.py:208
+#: main/views/about.py:17
 msgid "underline"
 msgstr "Underlined"
 
-#: post/views.py:209
+#: main/views/about.py:18
 msgid "strike"
 msgstr "Striked"
 
-#: post/views.py:210 post/views.py:211
+#: main/views/about.py:19 main/views/about.py:20
 msgid "link"
 msgstr "Link"
 
-#: post/views.py:212
+#: main/views/about.py:21
 msgid "post reference"
 msgstr "Post reference"
 
-#: post/views.py:213 templates/base.html:20 templates/tags.html:5
+#: main/views/about.py:22 templates/base.html:20 templates/tags.html:5
 #: templates/tags.html.py:8
 msgid "tags"
 msgstr "Tags"
 
-#: post/views.py:214
+#: main/views/about.py:23
 msgid "list"
 msgstr "List"
 
-#: post/views.py:215
+#: main/views/about.py:24
 msgid "ordered list"
 msgstr "Ordered list"
 
-#: post/views.py:216 post/views.py:218
+#: main/views/about.py:25 main/views/about.py:27
 msgid "title"
 msgstr "Title"
 
-#: post/views.py:219
+#: main/views/about.py:28
 msgid "quotation"
 msgstr "Quotation"
 
-#: post/views.py:220
+#: main/views/about.py:29
 msgid "code"
 msgstr "Code"
 
-#: post/views.py:221
+#: main/views/about.py:30
 msgid "blockcode"
 msgstr "Block of code"
 
-#: post/views.py:222
+#: main/views/about.py:31
 msgid "linebreak"
 msgstr "Line break"
+
+#: main/views/search.py:26 templates/base.html:24
+msgid "search"
+msgstr "Search"
+
+#: main/views/tag.py:43
+msgid "tag"
+msgstr "Tag"
 
 #: templates/404.html:4 templates/about_en.html:4 templates/about_fr.html:4
 #: templates/base.html:19
@@ -124,7 +124,7 @@ msgstr "Participate"
 msgid "home"
 msgstr "Home"
 
-#: templates/base.html:49
+#: templates/base.html:46
 msgid "wrote"
 msgstr "wrote"
 

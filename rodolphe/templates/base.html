@@ -14,12 +14,12 @@
 
   <nav class="navbar" role="navigation">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'post.views.home' %}">{% bootstrap_icon "home" %} {% trans "home" %}</a></li>
-      <li><a href="{% url 'post.views.new' %}">{% bootstrap_icon "plus" %} {% trans "participate" %}</a></li>
-      <li><a href="{% url 'post.views.about' %}">{% bootstrap_icon "info-sign" %} {% trans "about" %}</a></li>
-      <li><a href="{% url 'post.views.taglist' %}">{% bootstrap_icon "tag" %} {% trans "tags" %}</a></li>
+      <li><a href="{% url 'main.views.home' %}">{% bootstrap_icon "home" %} {% trans "home" %}</a></li>
+      <li><a href="{% url 'main.views.thread.new' %}">{% bootstrap_icon "plus" %} {% trans "participate" %}</a></li>
+      <li><a href="{% url 'main.views.about.about' %}">{% bootstrap_icon "info-sign" %} {% trans "about" %}</a></li>
+      <li><a href="{% url 'main.views.tag.index' %}">{% bootstrap_icon "tag" %} {% trans "tags" %}</a></li>
       <li>
-	<form action="{% url 'post.views.search' %}" method="get" class="navbar-form" role="search">
+	<form action="{% url 'main.views.search.search' %}" method="get" class="navbar-form" role="search">
 	  <div class="form-group">
 	    <input type="text" name="q" class="form-control" placeholder="{% trans 'search' %}"
 		   value="{% if query %}{{query}}{% endif %}" />

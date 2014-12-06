@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'captcha',
     'utils',
-    'post'
+    'main'
 )
 
 MIDDLEWARE_CLASSES = (

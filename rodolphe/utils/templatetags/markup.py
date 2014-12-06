@@ -3,7 +3,7 @@ from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 
-from post.models import Post
+from main.models import Post
 
 import markdown
 
@@ -34,7 +34,7 @@ class PostReferencesPattern(markdown.inlinepatterns.Pattern):
         except Post.DoesNotExist:
             return
         a = markdown.util.etree.Element('a')
-        url = reverse('post.views.view', args=(post.thread.id,))
+        url = reverse('main.views.thread.view', args=(post.thread.id,))
         a.set('href', '{}#p{}'.format(url, post.id))
         a.text = '#{}'.format(post.id)
         return a
@@ -60,7 +60,7 @@ class DottagsPattern(markdown.inlinepatterns.Pattern):
         if prev and not prev[-1] in ' \t\n\r\f\v':
             return expr
         a = markdown.util.etree.Element('a')
-        url = reverse('post.views.tagsearch', args=(tag,))
+        url = reverse('main.views.tag.search', args=(tag,))
         a.set('href', '{}'.format(url))
         if dot in self.labels:
             label = self.labels[dot]
