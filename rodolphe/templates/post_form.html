@@ -8,11 +8,11 @@
   <h4><a href="{% url 'main.views.about.markdown' %}">{% bootstrap_icon "align-center" %} {% trans "markdown tags" %}</a></h4>
   {% bootstrap_form form %}
   {% buttons %}
-  <button class="btn" onclick="post_preview(); return false;">
-    {% bootstrap_icon "refresh" %} {% trans "preview" %}
-  </button>
   <button type="submit" class="btn btn-primary">
     {% bootstrap_icon form_icon %} {% trans form_submit %}
+  </button>
+  <button class="btn btn-info" onclick="post_preview(); return false;">
+    {% bootstrap_icon "refresh" %} {% trans "preview" %}
   </button>
   {% endbuttons %}
 </form>

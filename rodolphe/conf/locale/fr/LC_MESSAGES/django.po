@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 16:17+0100\n"
+"POT-Creation-Date: 2014-12-10 01:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,60 +38,60 @@ msgstr "Texte"
 msgid "picture"
 msgstr "Image"
 
-#: main/views/about.py:14 main/views/about.py:15
+#: main/views/about.py:16 main/views/about.py:17
 msgid "emphasis"
 msgstr "Italique"
 
-#: main/views/about.py:16
+#: main/views/about.py:18
 msgid "bold"
 msgstr "Gras"
 
-#: main/views/about.py:17
+#: main/views/about.py:19
 msgid "underline"
 msgstr "Souligné"
 
-#: main/views/about.py:18
+#: main/views/about.py:20
 msgid "strike"
 msgstr "Barré"
 
-#: main/views/about.py:19 main/views/about.py:20
+#: main/views/about.py:21 main/views/about.py:22
 msgid "link"
 msgstr "Lien"
 
-#: main/views/about.py:21
+#: main/views/about.py:23
 msgid "post reference"
 msgstr "Référence de message"
 
-#: main/views/about.py:22 templates/base.html:20 templates/tags.html:5
+#: main/views/about.py:24 templates/base.html:20 templates/tags.html:5
 #: templates/tags.html.py:8
 msgid "tags"
 msgstr "Tags"
 
-#: main/views/about.py:23
+#: main/views/about.py:25
 msgid "list"
 msgstr "Liste à puces"
 
-#: main/views/about.py:24
+#: main/views/about.py:26
 msgid "ordered list"
 msgstr "Liste ordonnée"
 
-#: main/views/about.py:25 main/views/about.py:27
+#: main/views/about.py:27 main/views/about.py:29
 msgid "title"
 msgstr "Titre"
 
-#: main/views/about.py:28
+#: main/views/about.py:30
 msgid "quotation"
 msgstr "Citation"
 
-#: main/views/about.py:29
+#: main/views/about.py:31
 msgid "code"
 msgstr "Code"
 
-#: main/views/about.py:30
+#: main/views/about.py:32
 msgid "blockcode"
 msgstr "Bloc de code"
 
-#: main/views/about.py:31
+#: main/views/about.py:33
 msgid "linebreak"
 msgstr "Ligne de séparation"
 
@@ -153,15 +153,6 @@ msgstr "Édition d'un message"
 msgid "editing post"
 msgstr "Édition Message"
 
-#: templates/edit.html:17 templates/markdown.html:8 templates/new.html:11
-#: templates/view.html:30
-msgid "markdown tags"
-msgstr "Balises Markdown"
-
-#: templates/edit.html:21 templates/post_content.html:16
-msgid "edit"
-msgstr "Éditer"
-
 #: templates/history.html:5
 msgid "history of post"
 msgstr "Historique d'un message"
@@ -181,6 +172,10 @@ msgstr "Page"
 #: templates/markdown.html:5
 msgid "markdown"
 msgstr "Markdown"
+
+#: templates/markdown.html:8 templates/post_form.html:8
+msgid "markdown tags"
+msgstr "Balises Markdown"
 
 #: templates/markdown.html:12
 msgid "tag name"
@@ -202,10 +197,6 @@ msgstr "Nouveau Sujet"
 msgid "creating new thread"
 msgstr "Création d'un nouveau sujet"
 
-#: templates/new.html:15
-msgid "create"
-msgstr "Envoyer"
-
 #: templates/post_content.html:8
 msgid "quote"
 msgstr "Citer"
@@ -213,6 +204,10 @@ msgstr "Citer"
 #: templates/post_content.html:12
 msgid "history"
 msgstr "Historique"
+
+#: templates/post_content.html:16
+msgid "edit"
+msgstr "Éditer"
 
 #: templates/post_content.html:28
 msgid "by_author"
@@ -248,6 +243,10 @@ msgstr "Réponse à"
 msgid "read thread"
 msgstr "Lire la discussion"
 
+#: templates/post_form.html:15
+msgid "preview"
+msgstr "Prévisualiser"
+
 #: templates/tags_widget.html:5
 msgid "popular tags"
 msgstr "Tags populaires"
@@ -264,6 +263,8 @@ msgstr "Lecture d'un sujet"
 msgid "reply to thread"
 msgstr "Répondre au sujet"
 
-#: templates/view.html:34
-msgid "reply"
-msgstr "Répondre"
+#~ msgid "create"
+#~ msgstr "Envoyer"
+
+#~ msgid "reply"
+#~ msgstr "Répondre"
