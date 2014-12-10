@@ -24,6 +24,7 @@ urlpatterns = patterns('',
 
     url(r'^about$', 'main.views.about.about'),
     url(r'^markdown$', 'main.views.about.markdown'),
+    url(r'^render$', 'main.views.about.render'),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),

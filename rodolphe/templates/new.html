@@ -7,13 +7,5 @@
 {% block content %}
 <h2>{% trans "creating new thread" %}</h2>
 <hr/>
-<form action="{% url 'main.views.thread.new' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-  <h3><a href="{% url 'main.views.about.markdown' %}">{% trans "markdown tags" %}</a></h3>
-  {% bootstrap_form form %}
-  {% buttons %}
-  <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "plus" %} {% trans "create" %}
-  </button>
-  {% endbuttons %}
-</form>
+{% include "post_form.html" with form_action="main.views.thread.new" form_icon="plus" form_submit="create" %}
 {% endblock %}

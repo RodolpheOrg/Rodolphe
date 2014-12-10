@@ -51,5 +51,11 @@
       $(textarea).val(content);
     });
   }
+
+  function post_preview() {
+  text = $("#post_form #id_content").val();
+  $("#post_preview p.content").load("/render", {"content": text});
+  $("#post_preview").show();
+  }
 </script>
 {% endblock %}

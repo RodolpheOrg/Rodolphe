@@ -12,14 +12,5 @@
   <h2>{% trans "editing post" %} {{post}}</h2>
 </p>
 <hr/>
-
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-  <h3><a href="{% url 'main.views.about.markdown' %}">{% trans "markdown tags" %}</a></h3>
-  {% bootstrap_form form %}
-  {% buttons %}
-  <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "ok" %} {% trans "edit" %}
-  </button>
-  {% endbuttons %}
-</form>
+{% include "post_form.html" with form_icon="ok" form_submit="edit" %}
 {% endblock %}

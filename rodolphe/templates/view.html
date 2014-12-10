@@ -26,13 +26,5 @@
 <hr/>
 <a name="reply"></a>
 <h2>{% trans "reply to thread" %} {{post}}</h2>
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-  <h3><a href="{% url 'main.views.about.markdown' %}">{% trans "markdown tags" %}</a></h3>
-  {% bootstrap_form form %}
-  {% buttons %}
-  <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon "plus" %} {% trans "reply" %}
-  </button>
-  {% endbuttons %}
-</form>
+{% include "post_form.html" with form_icon="plus" form_submit="reply" %}
 {% endblock %}

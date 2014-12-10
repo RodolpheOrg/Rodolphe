@@ -1,5 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import get_language
 from django.utils.translation import ugettext as _
 
@@ -34,3 +36,12 @@ def markdown(request):
         'examples': examples
     })
     return render_to_response('markdown.html', context)
+
+
+@require_POST
+@csrf_exempt
+def render(request):
+    context = RequestContext(request, {
+        'content': request.POST.get('content', '')
+    })
+    return render_to_response('render.html', context)
