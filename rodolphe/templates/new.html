@@ -7,5 +7,6 @@
 {% block content %}
 <h2>{% trans "creating new thread" %}</h2>
 <hr/>
-{% include "post_form.html" with form_action="main.views.thread.new" form_icon="plus" form_submit="create" %}
+{% trans "create" as form_submit %}
+{% include "post_form.html" with form_action="main.views.thread.new" form_icon="plus" %}
 {% endblock %}

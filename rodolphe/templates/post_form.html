@@ -9,7 +9,7 @@
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary">
-    {% bootstrap_icon form_icon %} {% trans form_submit %}
+    {% bootstrap_icon form_icon %} {{form_submit}}
   </button>
   <button class="btn btn-info" onclick="post_preview(); return false;">
     {% bootstrap_icon "refresh" %} {% trans "go_preview" %}

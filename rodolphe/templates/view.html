@@ -26,5 +26,6 @@
 <hr/>
 <a name="reply"></a>
 <h2>{% trans "reply to thread" %} {{post}}</h2>
-{% include "post_form.html" with form_icon="plus" form_submit="reply" %}
+{% trans "reply" as form_submit %}
+{% include "post_form.html" with form_icon="plus" %}
 {% endblock %}

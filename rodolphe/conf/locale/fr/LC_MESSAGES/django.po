@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 09:11+0100\n"
+"POT-Creation-Date: 2014-12-10 09:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,6 +153,10 @@ msgstr "Édition d'un message"
 msgid "editing post"
 msgstr "Édition Message"
 
+#: templates/edit.html:15 templates/post_content.html:16
+msgid "edit"
+msgstr "Éditer"
+
 #: templates/history.html:5
 msgid "history of post"
 msgstr "Historique d'un message"
@@ -197,6 +201,10 @@ msgstr "Nouveau Sujet"
 msgid "creating new thread"
 msgstr "Création d'un nouveau sujet"
 
+#: templates/new.html:10
+msgid "create"
+msgstr "Envoyer"
+
 #: templates/post_content.html:8
 msgid "quote"
 msgstr "Citer"
@@ -204,10 +212,6 @@ msgstr "Citer"
 #: templates/post_content.html:12
 msgid "history"
 msgstr "Historique"
-
-#: templates/post_content.html:16
-msgid "edit"
-msgstr "Éditer"
 
 #: templates/post_content.html:28
 msgid "by_author"
@@ -248,7 +252,6 @@ msgid "preview"
 msgstr "Prévisualisation"
 
 #: templates/post_form.html:15
-#, fuzzy
 msgid "go_preview"
 msgstr "Prévisualiser"
 
@@ -268,8 +271,6 @@ msgstr "Lecture d'un sujet"
 msgid "reply to thread"
 msgstr "Répondre au sujet"
 
-#~ msgid "create"
-#~ msgstr "Envoyer"
-
-#~ msgid "reply"
-#~ msgstr "Répondre"
+#: templates/view.html:29
+msgid "reply"
+msgstr "Répondre"

@@ -12,5 +12,6 @@
   <h2>{% trans "editing post" %} {{post}}</h2>
 </p>
 <hr/>
-{% include "post_form.html" with form_icon="ok" form_submit="edit" %}
+{% trans "edit" as form_submit %}
+{% include "post_form.html" with form_icon="ok" %}
 {% endblock %}
