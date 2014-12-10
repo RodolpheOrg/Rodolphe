@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 01:13+0100\n"
+"POT-Creation-Date: 2014-12-10 09:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,8 +242,13 @@ msgstr "Answer to"
 msgid "read thread"
 msgstr "Read the thread"
 
-#: templates/post_form.html:15
+#: templates/post_form.html:5
 msgid "preview"
+msgstr "Preview"
+
+#: templates/post_form.html:15
+#, fuzzy
+msgid "go_preview"
 msgstr "Preview"
 
 #: templates/tags_widget.html:5

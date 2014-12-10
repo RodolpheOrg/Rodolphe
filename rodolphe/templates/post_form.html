@@ -2,7 +2,7 @@
 {% load bootstrap3 %}
 <form id="post_form" method="post" enctype="multipart/form-data" {% if form_action %}action="{% url form_action %}"{% endif %}>{% csrf_token %}
   <div id="post_preview" style="display: none;">
-    <h4>Preview</h4>
+    <h4>{% trans "preview" %}</h4>
     <p class="content" />
   </div>
   <h4><a href="{% url 'main.views.about.markdown' %}">{% bootstrap_icon "align-center" %} {% trans "markdown tags" %}</a></h4>
@@ -12,7 +12,7 @@
     {% bootstrap_icon form_icon %} {% trans form_submit %}
   </button>
   <button class="btn btn-info" onclick="post_preview(); return false;">
-    {% bootstrap_icon "refresh" %} {% trans "preview" %}
+    {% bootstrap_icon "refresh" %} {% trans "go_preview" %}
   </button>
   {% endbuttons %}
 </form>
