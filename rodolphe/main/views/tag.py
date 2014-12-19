@@ -6,9 +6,12 @@ from django.utils.translation import ugettext as _
 
 from main.models import Post, Tag
 from main.forms import PostForm
+from utils.urls import build_url
+from utils.tags import TagsSet
 
 import re
 from collections import defaultdict
+from urllib.parse import urlencode
 
 
 def index(request):
@@ -26,8 +29,16 @@ def index(request):
 
 
 def search(request, pattern):
-    tag = re.escape('.{}'.format(pattern))
-    q = Q(content__iregex=r'(\s|\A){}(\W|\Z)'.format(tag))
+    tags = TagsSet.from_string(pattern)
+    show_all = request.GET.get('show_all', False)
+    q = Q()
+    regex = r'(\s|\A)\.{}(\W|\Z)'
+    for tag in tags:
+        q &= Q(content__iregex=regex.format(re.escape(tag)))
+    for tag in tags.iter_exclude():
+        q &= ~Q(content__iregex=regex.format(re.escape(tag)))
+    if not show_all:
+        q &= Q(parent=None)
     paginator = Paginator(Post.objects.filter(q, active=True)
                           .order_by('-last_resp_at'), 10)
     page_id = request.GET.get('page')
@@ -40,6 +51,10 @@ def search(request, pattern):
     context = RequestContext(request, {
         'page': posts,
         'form': PostForm(),
-        'title': '{} - {}'.format(_('tag'), pattern)
+        'title': '{} - {}'.format(_('tag'), pattern),
+        'show_all': show_all,
+        'show_all_url': build_url(request.path, request.GET.dict(),
+                                  show_all=('' if show_all else 'true')),
+        'pagination_extra': '&show_all=true' if show_all else ''
     })
     return render_to_response('index.html', context)

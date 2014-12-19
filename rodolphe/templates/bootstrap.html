@@ -8,11 +8,7 @@
     <link rel="icon" type="image/png" href="{{FAVICON}}" />
     {% endif %}
     {% bootstrap_css %}
-    <style>
-      blockquote p {
-        font-size: 13px;
-      }
-    </style>
+    <style>{% include "style.css" %}</style>
   </head>
   <body>
     {% block bootstrap3_content %}{% endblock %}

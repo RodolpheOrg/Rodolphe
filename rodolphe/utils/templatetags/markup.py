@@ -54,21 +54,15 @@ class DottagsPattern(markdown.inlinepatterns.Pattern):
         '+': 'label-success',
         '~': 'label-warning'
     }
+    tpl = template.loader.get_template('tag.html')
 
     def handleMatch(self, m):
         prev, expr, tag, dot = m.group(1), m.group(2), m.group(3), m.group(4)
         if prev and not prev[-1] in ' \t\n\r\f\v':
             return expr
-        a = markdown.util.etree.Element('a')
-        url = reverse('main.views.tag.search', args=(tag,))
-        a.set('href', '{}'.format(url))
-        if dot in self.labels:
-            label = self.labels[dot]
-        else:
-            label = 'label-primary'
-        a.set('class', 'label {}'.format(label))
-        a.text = '{}'.format(tag)
-        return a
+        context = template.Context({'tag': tag})
+        content = self.tpl.render(context).replace('\n', '')
+        return markdown.util.etree.fromstring(content)
 
 
 class DottagsExtension(markdown.Extension):

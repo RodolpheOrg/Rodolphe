@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^h/(?P<post_id>\d+)$', 'main.views.post.history'),
 
     url(r'^tags$', 'main.views.tag.index'),
-    url(r'^tag/(?P<pattern>\w+)$', 'main.views.tag.search'),
+    url(r'^tag/(?P<pattern>(~?\w+)(\|~?\w+)*)$', 'main.views.tag.search'),
 
     url(r'^search$', 'main.views.search.search'),
 

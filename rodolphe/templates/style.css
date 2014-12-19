@@ -1,0 +1,13 @@
+blockquote p {
+    font-size: 13px;
+}
+
+.tag .popup {
+    display: none;
+    position: absolute;
+    margin-top: 20px;
+}
+
+.tag:hover .popup {
+    display: inline;
+}

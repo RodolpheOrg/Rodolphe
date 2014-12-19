@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 09:23+0100\n"
+"POT-Creation-Date: 2014-12-19 19:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,11 +95,11 @@ msgstr "Bloc de code"
 msgid "linebreak"
 msgstr "Ligne de séparation"
 
-#: main/views/search.py:26 templates/base.html:24
+#: main/views/search.py:30 templates/base.html:24
 msgid "search"
 msgstr "Recherche"
 
-#: main/views/tag.py:43
+#: main/views/tag.py:54
 msgid "tag"
 msgstr "Tag"
 
@@ -172,6 +172,14 @@ msgstr "Liste des sujets"
 #: templates/index.html:14
 msgid "page"
 msgstr "Page"
+
+#: templates/index.html:22
+msgid "show only threads"
+msgstr "Ne voir que les discussions"
+
+#: templates/index.html:27
+msgid "show all posts"
+msgstr "Voir tous les posts"
 
 #: templates/markdown.html:5
 msgid "markdown"
