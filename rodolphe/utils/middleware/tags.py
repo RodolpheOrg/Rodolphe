@@ -5,6 +5,7 @@ from utils.tags import TagsSet
 
 
 class TagsMiddleware:
+    main_view = 'main.views.home'
     view = 'main.views.tag.search'
 
     def process_request(self, request):
@@ -27,5 +28,8 @@ class TagsMiddleware:
         if del_tag:
             tags.remove(del_tag)
 
-        new_url = reverse(self.view, args=(str(tags),))
+        if tags:
+            new_url = reverse(self.view, args=(str(tags),))
+        else:
+            new_url = reverse(self.main_view)
         return HttpResponsePermanentRedirect(new_url)

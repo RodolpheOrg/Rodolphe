@@ -52,3 +52,6 @@ class TagsSet:
 
     def iter_exclude(self):
         return iter(self._exclude)
+
+    def __bool__(self):
+        return bool(self._include) or bool(self._exclude)
