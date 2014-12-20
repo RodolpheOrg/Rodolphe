@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load markup %}
 {% load bootstrap3 %}
-<div class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
+<div id="post{{post.id}}" class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
   <div class="panel-heading">
     {% if editable %}
     <div class="btn-group pull-right">
@@ -22,7 +22,7 @@
     </div>
     {% endif %}
     
-    <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}">
+    <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}" class="badge">
       {% bootstrap_icon "link" %} <b>{{post}}</b>
     </a>
     {% trans "by_author" %} <b>{{post.author}}</b>
@@ -38,15 +38,16 @@
     {% endif %}
   </div>
   <div class="panel-body">
-    {% if post.picture %}
-    <a href="{{post.picture.url}}">
-      {% comment %}
-      <img class="img-thumbnail" src="{{post.thumbnail}}" />
-      {% endcomment %}
-      <img class="img-thumbnail" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
-    </a>
-    {% endif %}
-    {{post.content|markdown}}
+    <div class="media">
+      {% if post.picture %}
+      <a href="{{post.picture.url}}" class="pull-left">
+	<img class="img-thumbnail media-object" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
+      </a>
+      {% endif %}
+      <div class="media-body">
+	{{post.content|markdown}}
+      </div>
+    </div>
     {% if threadinfos %}
     <hr style="border-style: dashed;"/>
     <p>
