@@ -45,6 +45,7 @@
       </a>
       {% endif %}
       <div class="media-body">
+	{% if post.picture and post.content %}{% bootstrap_icon "chevron-right" %}{% endif %}
 	{{post.content|markdown}}
       </div>
     </div>
