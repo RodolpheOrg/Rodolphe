@@ -5,5 +5,5 @@
     <a href="?exclude_tag={{tag}}" class="btn btn-xs btn-danger">{% bootstrap_icon "remove" %}</a>
     <a href="?del_tag={{tag}}" class="btn btn-xs btn-info">{% bootstrap_icon "trash" %}</a>
   </span>
-  <a href="{% url 'main.views.tag.search' tag %}" class="label label-default">{{tag}}</a>
+  <a href="{% url 'main.views.tag.search' tag %}" class="label {{tag_label|default:'label-default'}}">{{tag}}</a>
 </span>

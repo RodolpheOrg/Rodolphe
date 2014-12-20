@@ -60,7 +60,11 @@ class DottagsPattern(markdown.inlinepatterns.Pattern):
         prev, expr, tag, dot = m.group(1), m.group(2), m.group(3), m.group(4)
         if prev and not prev[-1] in ' \t\n\r\f\v':
             return expr
-        context = template.Context({'tag': tag})
+        if dot in self.labels:
+            label = self.labels[dot]
+        else:
+            label = 'label-primary'
+        context = template.Context({'tag': tag, 'tag_label': label})
         content = self.tpl.render(context).replace('\n', '')
         return markdown.util.etree.fromstring(content)
 

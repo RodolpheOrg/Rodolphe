@@ -22,7 +22,7 @@
 	<form action="{% url 'main.views.search.search' %}" method="get" class="navbar-form" role="search">
 	  <div class="form-group">
 	    <input type="text" name="q" class="form-control" placeholder="{% trans 'search' %}"
-		   value="{% if query %}{{query}}{% endif %}" />
+		   value="{{query}}" />
 	  </div>
 	  <button type="submit" class="btn btn-default">{% bootstrap_icon "search" %}</button>
 	</form>
