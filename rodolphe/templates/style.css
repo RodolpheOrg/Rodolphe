@@ -11,3 +11,7 @@ blockquote p {
 .tag:hover .popup {
     display: inline;
 }
+
+.picture_show {
+    display: none;
+}

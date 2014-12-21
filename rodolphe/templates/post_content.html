@@ -41,11 +41,16 @@
     <div class="media">
       {% if post.picture %}
       <a href="{{post.picture.url}}" class="pull-left">
-	<img class="img-thumbnail media-object" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
+	<img class="img-thumbnail media-object picture" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
       </a>
       {% endif %}
       <div class="media-body">
-	{% if post.picture and post.content %}{% bootstrap_icon "chevron-right" %}{% endif %}
+	{% if post.picture and post.content %}
+	<span onclick="post_picture_toggle('#post{{post.id}}');">
+	  <span class="picture_show" title="{% trans 'show picture' %}">{% bootstrap_icon "chevron-right" %}</span>
+	  <span class="picture_hide" title="{% trans 'hide picture' %}">{% bootstrap_icon "chevron-left" %}</span>
+	</span>
+	{% endif %}
 	{{post.content|markdown}}
       </div>
     </div>

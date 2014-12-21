@@ -19,3 +19,10 @@ function post_preview() {
     $("#post_preview p.content").load("/render", {"content": text});
     $("#post_preview").show();
 }
+
+function post_picture_toggle(post_id)
+{
+    $(post_id + " .picture").toggle();
+    $(post_id + " .picture_show").toggle();
+    $(post_id + " .picture_hide").toggle();
+}

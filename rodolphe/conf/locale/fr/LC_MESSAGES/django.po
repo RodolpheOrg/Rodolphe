@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 19:20+0100\n"
+"POT-Creation-Date: 2014-12-21 13:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,10 +125,6 @@ msgstr "Participer"
 msgid "home"
 msgstr "Accueil"
 
-#: templates/base.html:46
-msgid "wrote"
-msgstr "a écrit"
-
 #: templates/delete.html:5
 msgid "deletion of post"
 msgstr "Suppression d'un message"
@@ -226,12 +222,12 @@ msgid "by_author"
 msgstr "par"
 
 #: templates/post_content.html:29 templates/post_content.html.py:34
-#: templates/post_content.html:59
+#: templates/post_content.html:65
 msgid "the_date"
 msgstr "le"
 
 #: templates/post_content.html:30 templates/post_content.html.py:35
-#: templates/post_content.html:60
+#: templates/post_content.html:66
 msgid "at_time"
 msgstr "à"
 
@@ -239,19 +235,27 @@ msgstr "à"
 msgid "edited"
 msgstr "modifié"
 
-#: templates/post_content.html:55
+#: templates/post_content.html:50
+msgid "show picture"
+msgstr "Afficher l'image"
+
+#: templates/post_content.html:51
+msgid "hide picture"
+msgstr "Masquer l'image"
+
+#: templates/post_content.html:61
 msgid "response"
 msgstr "réponse"
 
-#: templates/post_content.html:58
+#: templates/post_content.html:64
 msgid "last response"
 msgstr "dernière réponse"
 
-#: templates/post_content.html:64
+#: templates/post_content.html:70
 msgid "response to"
 msgstr "Réponse à"
 
-#: templates/post_content.html:66
+#: templates/post_content.html:72
 msgid "read thread"
 msgstr "Lire la discussion"
 
@@ -282,3 +286,6 @@ msgstr "Répondre au sujet"
 #: templates/view.html:29
 msgid "reply"
 msgstr "Répondre"
+
+#~ msgid "wrote"
+#~ msgstr "a écrit"
