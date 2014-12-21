@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load markup %}
+{% load post_color %}
 {% load bootstrap3 %}
 <div id="post{{post.id}}" class="panel {% if header %}panel-info{% else %}panel-default{% endif %}">
   <div class="panel-heading">
@@ -22,7 +23,7 @@
     </div>
     {% endif %}
     
-    <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}" class="badge">
+    <a href="{% url 'main.views.thread.view' post.thread.id %}#p{{post.id}}" name="p{{post.id}}" class="badge" style="background-color: {{post.author|post_color}};">
       {% bootstrap_icon "link" %} <b>{{post}}</b>
     </a>
     {% trans "by_author" %} <b>{{post.author}}</b>
