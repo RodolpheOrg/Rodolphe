@@ -14,27 +14,15 @@
 <h2>{% trans "list of threads" %} - {% trans "page" %} {{page.number}}</h2>
 {% include 'tags_widget.html' %}
 <hr/>
-{% if show_all_url %}
-<p>
-  {% if show_all %}
-  <a href="{{show_all_url}}" class="btn btn-default btn-lg">
-    {% bootstrap_icon "th-list" %}
-    {% trans "show only threads" %}
-  </a>
-  {% else %}
-  <a href="{{show_all_url}}" class="btn btn-default btn-lg">
-    {% bootstrap_icon "th" %}
-    {% trans "show all posts" %}
-  </a>
-  {% endif %}
-</p>
-<hr/>
-{% endif %}
+{% include 'search_bar.html' %}
 
 {% for post in page %}
 {% include 'post_content.html' with header=post.is_parent threadinfos=True %}
 <hr/>
+{% empty %}
+<p>{% trans "no results found" %}.</p>
+<hr/>
 {% endfor %}
 
-{% bootstrap_pagination page extra=pagination_extra %}
+{% bootstrap_pagination page extra=search.extra %}
 {% endblock %}

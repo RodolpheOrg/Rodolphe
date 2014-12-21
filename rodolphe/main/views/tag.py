@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 
 from main.models import Post, Tag
 from main.forms import PostForm
-from utils.urls import build_url
+from utils.search import get_search
 from utils.tags import TagsSet
 
 import re
@@ -30,17 +30,14 @@ def index(request):
 
 def search(request, pattern):
     tags = TagsSet.from_string(pattern)
-    show_all = request.GET.get('show_all', False)
-    q = Q()
+    q, search = get_search(request)
     regex = r'(\s|\A)\.{}(\W|\Z)'
     for tag in tags:
         q &= Q(content__iregex=regex.format(re.escape(tag)))
     for tag in tags.iter_exclude():
         q &= ~Q(content__iregex=regex.format(re.escape(tag)))
-    if not show_all:
-        q &= Q(parent=None)
     paginator = Paginator(Post.objects.filter(q, active=True)
-                          .order_by('-last_resp_at'), 10)
+                          .order_by('-created_at'), 10)
     page_id = request.GET.get('page')
     try:
         posts = paginator.page(page_id)
@@ -52,9 +49,6 @@ def search(request, pattern):
         'page': posts,
         'form': PostForm(),
         'title': '{} - {}'.format(_('tag'), pattern),
-        'show_all': show_all,
-        'show_all_url': build_url(request.path, request.GET.dict(),
-                                  show_all=('' if show_all else 'true')),
-        'pagination_extra': '&show_all=true' if show_all else ''
+        'search': search
     })
     return render_to_response('index.html', context)

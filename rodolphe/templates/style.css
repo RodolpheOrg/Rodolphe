@@ -15,3 +15,13 @@ blockquote p {
 .picture_show {
     display: none;
 }
+
+{% if search.advanced %}
+#advanced_search_button {
+    display: none;
+}
+{% else %}
+#advanced_search {
+    display: none;
+}
+{% endif %}

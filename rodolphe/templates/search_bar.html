@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% if search %}
+<a id="advanced_search_button" class="btn btn-default" onclick="advanced_search();">
+  {% bootstrap_icon "search" %}
+  {% trans "advanced search" %}
+</a>
+<form id="advanced_search" method="get" class="form-inline" role="search">
+  <div class="form-group">
+    <input type="text" name="q" class="form-control" placeholder="{% trans 'keywords' %}"
+	   value="{{search.q}}" />
+    <input type="text" name="q_author" class="form-control" placeholder="{% trans 'author' %}"
+	   value="{{search.q_author}}" />
+    <div class="checkbox">
+      <label class="btn btn-default">
+	<input type="checkbox" name="q_pictures"
+	       {% if search.q_pictures %}checked="checked"{% endif %} />
+	{% bootstrap_icon "picture" %}
+	{% trans "with pictures" %}
+      </label>
+    </div>
+    <div class="checkbox">
+      <label class="btn btn-default">
+	<input type="checkbox" name="q_all"
+	       {% if search.q_all %}checked="checked"{% endif %} />
+	{% bootstrap_icon "th-large" %}
+	{% trans "show all posts" %}
+      </label>
+    </div>
+  </div>
+  <input type="hidden" name="q_advanced" value="on" />
+  <button type="submit" class="btn btn-default">{% bootstrap_icon "search" %} {% trans "search" %}</button>
+</form>
+<hr/>
+{% endif %}

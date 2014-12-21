@@ -26,3 +26,9 @@ function post_picture_toggle(post_id)
     $(post_id + " .picture_show").toggle();
     $(post_id + " .picture_hide").toggle();
 }
+
+function advanced_search()
+{
+    $("#advanced_search").show();
+    $("#advanced_search_button").hide();
+}

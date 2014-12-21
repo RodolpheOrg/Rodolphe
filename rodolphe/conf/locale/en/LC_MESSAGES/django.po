@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-21 13:24+0100\n"
+"POT-Creation-Date: 2014-12-21 17:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,11 +94,11 @@ msgstr "Block of code"
 msgid "linebreak"
 msgstr "Line break"
 
-#: main/views/search.py:30 templates/base.html:24
+#: main/views/search.py:25 templates/base.html:24 templates/search_bar.html:33
 msgid "search"
 msgstr "Search"
 
-#: main/views/tag.py:54
+#: main/views/tag.py:51
 msgid "tag"
 msgstr "Tag"
 
@@ -136,7 +136,7 @@ msgstr "Back"
 msgid "deleting post"
 msgstr "Deleting Post"
 
-#: templates/delete.html:20 templates/post_content.html:19
+#: templates/delete.html:20 templates/post_content.html:20
 msgid "delete"
 msgstr "Delete"
 
@@ -148,7 +148,7 @@ msgstr "Edition of a post"
 msgid "editing post"
 msgstr "Editing Post"
 
-#: templates/edit.html:15 templates/post_content.html:16
+#: templates/edit.html:15 templates/post_content.html:17
 msgid "edit"
 msgstr "Edit"
 
@@ -168,13 +168,9 @@ msgstr "List of threads"
 msgid "page"
 msgstr "Page"
 
-#: templates/index.html:22
-msgid "show only threads"
-msgstr "Show only threads"
-
-#: templates/index.html:27
-msgid "show all posts"
-msgstr "Show all posts"
+#: templates/index.html:23
+msgid "no results found"
+msgstr "No results found"
 
 #: templates/markdown.html:5
 msgid "markdown"
@@ -208,53 +204,53 @@ msgstr "Create a new thread"
 msgid "create"
 msgstr "Create"
 
-#: templates/post_content.html:8
+#: templates/post_content.html:9
 msgid "quote"
 msgstr "Quote"
 
-#: templates/post_content.html:12
+#: templates/post_content.html:13
 msgid "history"
 msgstr "History"
 
-#: templates/post_content.html:28
+#: templates/post_content.html:29
 msgid "by_author"
 msgstr "by"
 
-#: templates/post_content.html:29 templates/post_content.html.py:34
-#: templates/post_content.html:65
+#: templates/post_content.html:30 templates/post_content.html.py:35
+#: templates/post_content.html:66
 msgid "the_date"
 msgstr "the"
 
-#: templates/post_content.html:30 templates/post_content.html.py:35
-#: templates/post_content.html:66
+#: templates/post_content.html:31 templates/post_content.html.py:36
+#: templates/post_content.html:67
 msgid "at_time"
 msgstr "at"
 
-#: templates/post_content.html:33
+#: templates/post_content.html:34
 msgid "edited"
 msgstr "edited"
 
-#: templates/post_content.html:50
+#: templates/post_content.html:51
 msgid "show picture"
 msgstr "Show picture"
 
-#: templates/post_content.html:51
+#: templates/post_content.html:52
 msgid "hide picture"
 msgstr "Hide picture"
 
-#: templates/post_content.html:61
+#: templates/post_content.html:62
 msgid "response"
 msgstr "answer"
 
-#: templates/post_content.html:64
+#: templates/post_content.html:65
 msgid "last response"
 msgstr "last answer"
 
-#: templates/post_content.html:70
+#: templates/post_content.html:71
 msgid "response to"
 msgstr "Answer to"
 
-#: templates/post_content.html:72
+#: templates/post_content.html:73
 msgid "read thread"
 msgstr "Read the thread"
 
@@ -265,6 +261,26 @@ msgstr "Preview"
 #: templates/post_form.html:15
 msgid "go_preview"
 msgstr "Preview"
+
+#: templates/search_bar.html:7
+msgid "advanced search"
+msgstr "Advanced search"
+
+#: templates/search_bar.html:11
+msgid "keywords"
+msgstr "Keywords"
+
+#: templates/search_bar.html:13
+msgid "author"
+msgstr "Author"
+
+#: templates/search_bar.html:20
+msgid "with pictures"
+msgstr "With pictures"
+
+#: templates/search_bar.html:28
+msgid "show all posts"
+msgstr "Show all posts"
 
 #: templates/tags_widget.html:5
 msgid "popular tags"
@@ -285,6 +301,9 @@ msgstr "Reply to this thread"
 #: templates/view.html:29
 msgid "reply"
 msgstr "Reply"
+
+#~ msgid "show only threads"
+#~ msgstr "Show only threads"
 
 #~ msgid "wrote"
 #~ msgstr "wrote"
