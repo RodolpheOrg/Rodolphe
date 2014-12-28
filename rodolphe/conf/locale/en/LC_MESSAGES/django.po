@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-21 17:19+0100\n"
+"POT-Creation-Date: 2014-12-28 10:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,6 +262,10 @@ msgstr "Preview"
 msgid "go_preview"
 msgstr "Preview"
 
+#: templates/script.js:8
+msgid "wrote"
+msgstr "wrote"
+
 #: templates/search_bar.html:7
 msgid "advanced search"
 msgstr "Advanced search"
@@ -301,9 +305,3 @@ msgstr "Reply to this thread"
 #: templates/view.html:29
 msgid "reply"
 msgstr "Reply"
-
-#~ msgid "show only threads"
-#~ msgstr "Show only threads"
-
-#~ msgid "wrote"
-#~ msgstr "wrote"
