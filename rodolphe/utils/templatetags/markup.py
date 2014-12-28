@@ -4,6 +4,7 @@ from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 
 from main.models import Post
+from utils.templatetags.post_color import post_color
 
 import markdown
 
@@ -36,6 +37,8 @@ class PostReferencesPattern(markdown.inlinepatterns.Pattern):
         a = markdown.util.etree.Element('a')
         url = reverse('main.views.thread.view', args=(post.thread.id,))
         a.set('href', '{}#p{}'.format(url, post.id))
+        a.set('class', 'badge')
+        a.set('style', 'background-color: {}'.format(post_color(post.author)))
         a.text = '#{}'.format(post.id)
         return a
 
