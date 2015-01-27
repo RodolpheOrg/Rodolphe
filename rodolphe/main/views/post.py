@@ -6,6 +6,7 @@ from django.utils import timezone
 from main.models import Post
 from main.forms import PostForm, DeletePostForm
 from main.views.thread import view
+from main.views.paging import page as home
 
 import json
 
