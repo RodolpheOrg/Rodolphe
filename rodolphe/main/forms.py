@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 
 from main.models import Post, Tag
-from captcha.fields import CaptchaField
+from utils.captcha import CaptchaField
 
 
 def check_password(form, password):
