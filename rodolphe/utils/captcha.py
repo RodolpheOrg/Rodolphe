@@ -21,7 +21,7 @@ _DEFAULT_WORDS = [
 
 def find_intruder():
     words_sets = getattr(settings, 'CAPTCHA_WORDS', _DEFAULT_WORDS)
-    n_words = getattr(settings, 'CAPTCHA_WORDS_COUNT', 4)
+    n_words = getattr(settings, 'CAPTCHA_WORDS_COUNT', 3)
 
     cat1, cat2 = random.sample(words_sets, 2)
     intruder = random.choice(cat2)
