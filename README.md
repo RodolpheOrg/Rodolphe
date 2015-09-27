@@ -6,7 +6,7 @@ Quick Start
 -----------
 1. Clone the repository
 
-        git clone git@github.com:entwanne/Rodolphe.git
+        git clone https://github.com/RodolpheOrg/Rodolphe.git
 
 2. Install the dependancies
 
