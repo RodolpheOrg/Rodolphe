@@ -1,3 +1,4 @@
+'''
 from django.db import models
 
 from uuid import UUID
@@ -24,3 +25,5 @@ class UUIDField(models.BinaryField, metaclass=models.SubfieldBase):
         else:
             value = bytes(value)
         return super().get_prep_value(value)
+'''
+from django.db.models import UUIDField

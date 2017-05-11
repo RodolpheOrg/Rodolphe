@@ -42,7 +42,7 @@
     <div class="media">
       {% if post.picture %}
       <a href="{{post.picture.url}}" class="pull-left">
-	<img class="img-thumbnail media-object picture" src="{{MEDIA_URL}}{{post.picture}}" style="max-width:300px; max-height: 300px;" />
+	<img class="img-thumbnail media-object picture" src="{{post.picture.url}}" style="max-width:300px; max-height: 300px;" />
       </a>
       {% endif %}
       <div class="media-body">

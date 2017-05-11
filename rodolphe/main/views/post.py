@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.utils import timezone
 
@@ -42,11 +41,7 @@ def edit(request, post_id):
             return redirect(view, post.thread.id)
     else:
         form = PostForm(instance=post)
-    context = RequestContext(request, {
-        'post': post,
-        'form': form
-    })
-    return render_to_response('edit.html', context)
+    return render(request, 'edit.html', {'post': post, 'form': form})
 
 
 def delete(request, post_id):
@@ -64,11 +59,7 @@ def delete(request, post_id):
             return redirect(home)
     else:
         form = DeletePostForm(instance=post)
-    context = RequestContext(request, {
-        'post': post,
-        'form': form
-    })
-    return render_to_response('delete.html', context)
+    return render(request, 'delete.html', {'post': post, 'form': form})
 
 
 def history(request, post_id):
@@ -76,8 +67,4 @@ def history(request, post_id):
     hist = [post]
     while hist[0].old_post:
         hist.insert(0, hist[0].old_post)
-    context = RequestContext(request, {
-        'post': post,
-        'hist': hist
-    })
-    return render_to_response('history.html', context)
+    return render(request, 'history.html', {'post': post, 'hist': hist})

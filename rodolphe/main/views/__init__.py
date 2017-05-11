@@ -1,3 +1,2 @@
-from main.views.paging import page
-
-home = page
+from . import about, paging, post, search, tag, thread
+home = paging.page

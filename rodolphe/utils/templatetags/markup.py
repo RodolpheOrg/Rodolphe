@@ -67,7 +67,7 @@ class DottagsPattern(markdown.inlinepatterns.Pattern):
             label = self.labels[dot]
         else:
             label = 'label-primary'
-        context = template.Context({'tag': tag, 'tag_label': label})
+        context = {'tag': tag, 'tag_label': label}
         content = self.tpl.render(context).replace('\n', '')
         return markdown.util.etree.fromstring(content)
 

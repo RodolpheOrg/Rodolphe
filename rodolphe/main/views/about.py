@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.translation import get_language
@@ -8,7 +7,7 @@ from django.utils.translation import ugettext as _
 
 def about(request):
     tpl_name = 'about_{}.html'.format(get_language().split('-')[0])
-    return render_to_response(tpl_name, RequestContext(request))
+    return render(request, tpl_name)
 
 
 def markdown(request):
@@ -32,16 +31,11 @@ def markdown(request):
         (_("blockcode"), "    abcd\n    efgh"),
         (_("linebreak"), "------------")
     ]
-    context = RequestContext(request, {
-        'examples': examples
-    })
-    return render_to_response('markdown.html', context)
+    return render(request, 'markdown.html', {'examples': examples})
 
 
 @require_POST
 @csrf_exempt
-def render(request):
-    context = RequestContext(request, {
-        'content': request.POST.get('content', '')
-    })
-    return render_to_response('render.html', context)
+def render_markdown(request):
+    context = {'content': request.POST.get('content', '')}
+    return render(request, 'render.html', context)

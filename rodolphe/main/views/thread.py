@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, redirect, get_object_or_404
 
 from main.models import Post
 from main.forms import PostForm
@@ -17,11 +16,11 @@ def view(request, post_id):
             post.save()
     else:
         form = PostForm()
-    context = RequestContext(request, {
+    context = {
         'post': post,
         'form': form
-    })
-    return render_to_response('view.html', context)
+    }
+    return render(request, 'view.html', context)
 
 
 def new(request):
@@ -32,7 +31,4 @@ def new(request):
             return redirect(view, post.id)
     else:
         form = PostForm()
-    context = RequestContext(request, {
-        'form': form
-    })
-    return render_to_response('new.html', context)
+    return render(request, 'new.html', {'form': form})

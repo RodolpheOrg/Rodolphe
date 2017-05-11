@@ -1,7 +1,9 @@
-Django==1.6.1
+Django==1.11.1
+django-bootstrap3==8.2.3
+django-simple-captcha==0.5.5
+fake-factory==0.3.2
 Markdown==2.3.1
 Pillow==2.3.0
-django-bootstrap3==4.7.0
-django-simple-captcha==0.4.1
-fake-factory==0.3.2
+pytz==2017.2
 six==1.5.2
+wheel==0.24.0

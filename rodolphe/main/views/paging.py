@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from main.models import Post
@@ -16,8 +15,8 @@ def page(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    context = RequestContext(request, {
+    context = {
         'page': posts,
         'form': PostForm()
-    })
-    return render_to_response('index.html', context)
+    }
+    return render(request, 'index.html', context)
